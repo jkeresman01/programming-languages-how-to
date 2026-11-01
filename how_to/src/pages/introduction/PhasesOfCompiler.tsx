@@ -255,6 +255,22 @@ export default function PhasesOfCompiler() {
         ></iframe>
       </Callout>
 
+      <h4>C++ optimizer vs Java JIT</h4>
+
+       <Callout type="note">
+        <h4>C++ optimizer vs Java JIT</h4>
+
+        <iframe
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/1b-9mPTQV1Y"
+          title="C++ optimizer vs Java JIT"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}
+        ></iframe>
+      </Callout>
+
       <h3>Backend</h3>
 
       <p>
