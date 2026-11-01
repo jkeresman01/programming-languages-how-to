@@ -161,6 +161,30 @@ export default function InterpretersVsCompilers() {
         </iframe>
       </Callout>
 
+    <h3>Lua — the fastest scripting language in the world</h3>
+
+    <p>
+      Dynamically typed scripting language, meaning it supports dynamic data structures,
+      garbage collection and even eval-like functionality, designed around four main
+      goals: simplicity, small size, portability and embeddability.
+    </p>
+
+     <Callout type="tip">
+
+        <p><strong>Lua in 30s</strong></p>
+
+        <iframe
+            width="100%"
+            height="315"
+            src="https://www.youtube.com/embed/jUuqBZwwkQw?end=30"
+            title="Lua in 15s"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
+        </iframe>
+      </Callout>
+
     <h3>Generally speaking...</h3>
 
     <p>
@@ -172,7 +196,6 @@ export default function InterpretersVsCompilers() {
       refers to this variable, by contrast interpreter may need to look that variable
       up in a table every time it is accessed.
     </p>
-
     </>
   );
 }
