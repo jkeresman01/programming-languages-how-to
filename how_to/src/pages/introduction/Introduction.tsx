@@ -53,7 +53,6 @@ export default function Introduction() {
             src="https://www.youtube.com/embed/QfIOCyXBttY"
             title="I don't understand my debugger"
             loading="lazy"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
@@ -100,9 +99,9 @@ export default function Introduction() {
           src="https://www.youtube.com/embed/4GZdeWWraTs?start=114&end=136"
           title="Just embrace the BS"
           loading="lazy"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
+          allowFullScreen
+          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
         </iframe>
 
        </Callout>

@@ -23,7 +23,6 @@ export default function Shortcuts() {
               src="https://www.youtube.com/embed/Q2UDHY5as90?start=42"
               title=""
               loading="lazy"
-              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
               style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
@@ -59,7 +58,6 @@ export default function Shortcuts() {
               src="https://www.youtube.com/embed/d7KHAVaX_Rs?start=222&end=378"
               title="JIT compilation"
               loading="lazy"
-              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
               style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>

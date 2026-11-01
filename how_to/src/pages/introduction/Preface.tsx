@@ -50,7 +50,6 @@ export default function Preface() {
             src="https://www.youtube.com/embed/UF8uR6Z6KLc?start=162&end=210"
             title="I don't understand my debugger"
             loading="lazy"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
@@ -193,7 +192,6 @@ export default function Preface() {
             src="https://www.youtube.com/embed/aYbvhPHPC98?start=0&end=14"
             title="How to train a duck"
             loading="lazy"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
@@ -225,53 +223,6 @@ export default function Preface() {
         way of playing while remaining curious about other possibilities. In the end,
         just as no single martial arts school holds an absolute monopoly on wisdom, there
         is no one right way to play the game—or, for that matter, to cook a soup. </p>
-
-        <Callout type="tip"> 
-            <p><strong>General advice: </strong></p>
-
-            <p>
-              And this is where things get <strong>even more interesting</strong>,
-              because the same kind of thing happens in corporate environments. You have
-              different groups of people, each with their own set of values, beliefs,
-              interests, and ideas about what a good employee should look like. And
-              depending on which group holds the power, certain behaviours get rewarded,
-              certain people get promoted, and certain ways of thinking become the
-              accepted norm. People who conform to these values become visible, their
-              contributions get recognized, and their voices carry weight. Meanwhile,
-              those who don't conform might find themselves ignored, overlooked,
-              or slowly made invisible, regardless of how competent they actually are.
-            </p>
-
-            <p>
-                And, of course, some people learn how to play this game. Some develop
-                what we like to call soft skills, although sometimes the term is
-                doing a lot of heavy lifting here. Knowing how to communicate, build
-                relationships, and navigate disagreements can genuinely be useful,
-                but there's also the less flattering side of it: knowing <strong>whose
-                ass to kiss</strong>, when to agree with the boss, which opinions to
-                keep to yourself, and how to make the right people feel important. When 
-                you have to play into a version that certain people want to hear and when 
-                can you simply be yourself and speak truth. 
-            </p>
-
-            <p>Young players enter the game, willing to learn its codes. At first,
-            they see only the game they're taught to play (game of codes). But with
-            time, some begin to notice the other games unfolding around them. They
-            start recognizing the rules nobody speaks of, the moves nobody explains,
-            alongside dependencies between different player who seem to be playing an
-            entirely different game. Some learn how to play. Others never even realize
-            there's more than one game.  </p>
-
-            <p>
-            But be careful: once you see the game behind the game, you can never unsee it.
-            </p>
-
-            <p><strong>Red flags: </strong> Now you are invisible to use, we made him
-            look good|bad, do you want to leave on your own and that people think that
-            you are high performer or do you want that we make you look bad... and
-            this whole we bullshit </p>
-
-       </Callout>
 
        <Callout type="note">
           <p><strong>Coming back to non-interference approach: </strong>

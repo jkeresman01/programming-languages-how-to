@@ -28,7 +28,6 @@ export default function InterpretersVsCompilers() {
               src="https://www.youtube.com/embed/_C5AHaS1mOA?start=32&end=155"
               title="Interpreters vs Compilers"
               loading="lazy"
-              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
               style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
@@ -156,7 +155,6 @@ export default function InterpretersVsCompilers() {
             src="https://www.youtube.com/embed/G7oY8QVL3Fs?start=3279&end=3300"
             title="Bjarne and tensorflow"
             loading="lazy"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>

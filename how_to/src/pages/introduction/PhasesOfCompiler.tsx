@@ -26,7 +26,6 @@ export default function PhasesOfCompiler() {
             src="https://www.youtube.com/embed/BT2Cv-Tjq7Q?start=48&end=61"
             title="Artists built the Macintosh"
             loading="lazy"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
@@ -71,7 +70,6 @@ export default function PhasesOfCompiler() {
             src="https://www.youtube.com/embed/lflRnEfZgYQ?start=3&end=31"
             title="IR nonsene"
             loading="lazy"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
@@ -101,7 +99,6 @@ export default function PhasesOfCompiler() {
             src="https://www.youtube.com/embed/l-jMsoAY64k?start=67&end=311"
             title="Phases of compiler"
             loading="lazy"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
@@ -182,7 +179,6 @@ export default function PhasesOfCompiler() {
             src="https://www.youtube.com/embed/BI3K-ME3L74?start=163"
             title="What is scanning (No BS explanation)"
             loading="lazy"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
@@ -228,7 +224,6 @@ export default function PhasesOfCompiler() {
           height="315"
           src="https://www.youtube.com/embed/68oO51ZQyHY?start=170&end=193"
           title="Constant folding"
-          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           style={{ borderRadius: '8px', border: '1px solid var(--border)' }}
@@ -254,7 +249,6 @@ export default function PhasesOfCompiler() {
           height="315"
           src="https://www.youtube.com/embed/ulJm7_aTiQM?start=828&end=1070"
           title="Bentley Rules for Optimizing Work"
-          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           style={{ borderRadius: '8px', border: '1px solid var(--border)' }}
