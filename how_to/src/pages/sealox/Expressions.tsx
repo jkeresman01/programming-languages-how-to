@@ -246,54 +246,7 @@ export default function Expressions() {
 
       <h2>Functions</h2>
 
-      <p>Okay, okay time for functions, but some thoughts before that, this book
-      is weird don't you think, I try to put a few stories from my life in here, to
-      make it not so boring and purely technical one and it's a work in progress so
-      some stories might get removed or moved to some other chapters, I don't know,
-      anyhowzzy I'm a weird gem, there is no doubt, tried finding some quiet place
-      today to listen to a lecture, my reading spot had some guys yelling too much
-      while playing volleyball, even climbed a tree, but even up there it wasn't so
-      quiet, fell off the tree, that's funny, anyhowzzy back to the writing part,
-      this book has this red haired goddess, you know the vibe and all, smoking hot,
-      the vibe is everything and you might wonder what she's doing in this book,
-      but time for a side thought and you'll see how it all comes together.</p>
-
-     <p>
-      Anyhowzzy, I've been asked just some days ago why are you reading this book,
-      the book is called <i>"Surrounded by idiots"</i> by Thomas Erikson, do you
-      think that all the people around you are idiots, the answer was of course not,
-      how genuine the question actually was, I don't know, perhaps the guy was just
-      polite, side thought inside a side thought about politeness, bartender bought me
-      a coffee, she was good and polite, so she earns a place in this book, also now
-      that I brought coffees into this story about politeness, sitting in the bar not
-      ordering anything is impolite, I sometimes order something, usually a coffee,
-      not drinking it, but sitting and being in the world of thought, anyhowzzy back
-      to the book, perhaps the guy was genuinely interested in the book, nonetheless
-      it made me smile a bit, not about the question, or anything related to it,
-      but how clever the author actually was.
-     </p>
-
-     <p>
-      Just think about it for a second, how many of the people actually asked themselves
-      this question, "Why are we all idiots to this guy?" and read the book, they were
-      probably disappointed a bit when they read the book, so remember never judge a
-      book by its cover.
-     </p>
-
-     <p>
-      Anyhowzzy now back to the conclusion of this small story in the functions chapter.
-      I haven't seen her since that day, she could be anywhere, I've just noticed the
-      vibe and it was smoking hot, you get this part, she is the main character in this
-      programming book.  It's about writing, programming books are boring and dull,
-      "Surrounded by idiots" book is a bestseller it brings mystery, why does the author
-      of that book think that we are all idiots, same thing is with this smoking hot
-      red haired goddess, it brings mystery who is that girl, it's a writing trick,
-      and now you might wonder, isn't this impolite to mention a girl in a book for
-      writing reasons and the answer is I don't know, perhaps, but remember writing
-      for me isn't about creating a bestseller or using writing tricks, as was coding
-      for some time it's an escape into the world of thought.
-     </p>
-
+      
     </>
   );
 }
