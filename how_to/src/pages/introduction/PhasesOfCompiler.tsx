@@ -7,10 +7,10 @@ export default function PhasesOfCompiler() {
     <h1>Phases of a compiler/interpreter </h1>
 
       <p>
-       Okay now that we understand what are we building, let's see which phases
-       we need to go through, but of course dummified a lot, so the main question is:
-       <i><strong>"How do we get from the high level language like Sealox to
-       series of instructions that CPU can actually execute?"</strong></i>
+       Okay now that we understand what are we building, let's see which phases we
+       need to go through, but of course dummified a lot, so the main question is:
+       <i><strong>"How do we get from the high level language like Sealox to series
+       of instructions that CPU can actually execute?"</strong></i>
       </p>
 
       <Callout type="tip">
@@ -40,13 +40,12 @@ export default function PhasesOfCompiler() {
         </strong> where we optimize a bunch of stuff, like do some constant folding,
         unroll some loops etc. or in other words when we understand what poet tried
         to say, we can swap it a bit while keeping the same semantics and finally
-        at the end of the story there comes <strong>back end</strong> so we have
-        now optimized everything that comes to mind and now is time to generate some
-        machine instructions and here the two most obvious things that come to mind
-        would be to generate some bytecode or target a specific chip architecture
-        (x86, ARM...) or in other words we go back from poetry to reality, pure on
-        logic and instructions. Of course it's quite more complex than that, but let's
-        leave it there.
+        at the end of the story there comes <strong>back end</strong> so we have now
+        optimized everything that comes to mind and now is time to generate some machine
+        instructions and here the two most obvious things that come to mind would be to
+        generate some bytecode or target a specific chip architecture (x86, ARM...) or in
+        other words we go back from poetry to reality, pure on logic and instructions. Of
+        course it's quite more complex than that, but let's leave it there.
       </p>
 
       <Callout type="note">
@@ -56,12 +55,12 @@ export default function PhasesOfCompiler() {
         This dude in the video drops this thing called IR (Intermediate Representation),
         and ohhhhh boy is it neat. It saves us from the dreaded MxN problem and makes
         optimizations way easier on top of that. You see, if you want to ship compilers
-        for a bunch of languages and target a bunch of architectures, naively you'd need
-        MxN implementations — sounds painful, right? But just listen to this crazy idea:
-        each frontend targets some intermediate representation, and the backend takes
-        that IR and spits out native code. Boom, problem solved. The reason GCC supports
-        so many languages and so many chips is exactly this — every frontend targets an
-        IR, mostly GIMPLE and RTL, and that's that.
+        for a bunch of languages and target a bunch of architectures, naively you'd
+        need MxN implementations — sounds painful, right? But just listen to this
+        crazy idea: each frontend targets some intermediate representation, and the
+        backend takes that IR and spits out native code. Boom, problem solved. The
+        reason GCC supports so many languages and so many chips is exactly this —
+        every frontend targets an IR, mostly GIMPLE and RTL, and that's that.
       </p>
 
         <iframe
@@ -80,9 +79,9 @@ export default function PhasesOfCompiler() {
       <Callout type="tip">
 
       <p><strong>Fun fact: </strong>
-        Grace Murray Hopper is the women credited for creating the first compiler, she is 
-        also responsible for reporting first actual case of bug while working on early Mark 2 
-        computer.
+        Grace Murray Hopper is the women credited for creating the first compiler,
+        she is also responsible for reporting first actual case of bug while working
+        on early Mark 2 computer.
       </p>
 
       </Callout>
@@ -126,8 +125,8 @@ export default function PhasesOfCompiler() {
         There are a few terms that get used in here, "Scanning" and "Lexing", we will
         use scanning but "Lexing" could be more correct, it comes from Greek root "lex"
         meaning "word" <strong>and that's that</strong>. This mystery was quite easy.
-        We are essentially just grouping this stream of characters into "words", while 
-        ignoring all the noise, like comments and whitespace.
+        We are essentially just grouping this stream of characters into "words",
+        while ignoring all the noise, like comments and whitespace.
       </p>
 
       <Callout type="tip">
@@ -135,9 +134,9 @@ export default function PhasesOfCompiler() {
       <p><strong>Fun fact: </strong>
         In ancient times, like two billion years ago, human ancestors—such as Homo
         erectus discovered how to control fire and somewhere in that period when memory
-        was a precious resource <strong>"Scanner"</strong> referred to part of code that
-        read raw source code characters from disk and <strong>"Lexer"</strong> actually
-        did something useful with those characters, today no one cares anymore.
+        was a precious resource <strong>"Scanner"</strong> referred to part of code
+        that read raw source code characters from disk and <strong>"Lexer"</strong>
+        actually did something useful with those characters, today no one cares anymore.
       </p>
 
       </Callout>
@@ -151,8 +150,8 @@ export default function PhasesOfCompiler() {
       the first two phases—is to recognize the structure of a program without giving
       a fuck about its meaning.</p>
 
-     <p>And you might be thinking, "What the fuck does that even mean? 
-     Well, let's try to go through this nonsense using a simple example:</p>
+     <p>And you might be thinking, "What the fuck does that even mean?  Well, let's
+     try to go through this nonsense using a simple example:</p>
 
     <CodeBlock
         language="plaintext" code={`var diana = "There is no zebra in here"`}
@@ -199,8 +198,8 @@ export default function PhasesOfCompiler() {
 
       <h3>Middle end</h3>
 
-      <p>We now understand what the poet tried to say, so we can swap it out
-      while keeping the same semantics, and we sneak in some optimizations along the way.</p>
+      <p>We now understand what the poet tried to say, so we can swap it out while
+      keeping the same semantics, and we sneak in some optimizations along the way.</p>
 
       <p>Optimizations are just a weird and complex topic on its own, most of them happen
       on intermediate representation, but not all of them, and one can spend decades

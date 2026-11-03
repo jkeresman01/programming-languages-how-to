@@ -1,7 +1,8 @@
 import Callout from '../../components/Callout';
 
 export default function Preface() {
-  return ( <>
+  return (
+      <>
       <h1>How did it start?</h1>
 
       <p>
@@ -201,23 +202,31 @@ export default function Preface() {
 
       <p>
        Even though the game has its own origins, traditions, and ways of being played,
-       each time I participate, I bring my own habits, strategies, and understanding
-       to it. I might become attached to a particular way of playing because it has
-       worked for me, and for the duration of a game, I commit to that approach and
-       try to execute it as well as I can. But I also have to remain open to what other
-       players can teach me, to the strategies that challenge mine, and to the things
-       I discover when my usual way of doing things doesn't work. </p>
+       each time I participate, I bring my own habits, strategies, and understanding to
+       it. I might become attached to a particular way of playing because it has worked
+       for me. The fact that one approach works within a particular context doesn't make
+       it the only right approach, nor does it invalidate the approaches of others. 
+       </p>
 
-       <p>The fact that one approach works within a particular context doesn't make it
-       the only right approach, nor does it invalidate the approaches of others. The
-       game may have been founded by <strong>Ants and Open Radio</strong> (this is how
-       it started for me), but the ways in which people experience, play, and develop
-       it need not remain fixed forever.  Each player brings a different perspective,
-       and each has something to contribute. The point isn't to abandon one approach
-       for another every time I encounter something new, but to immerse myself in what
-       I'm practising while remembering that there's always more to learn. </p>
+       <Callout type="tip">
+           <p>The game may have been founded by <strong>Ants and Open Radio</strong>
+           (this is how it started for me), but the ways in which people experience, play,
+           and develop it need not remain fixed forever.</p>
 
-        <p> Perhaps that's what martial arts schools can teach us: we can honour the
+            <iframe
+                  width="100%"
+                  height="315"
+                  src="https://www.youtube.com/embed/G4hL5Om4IJ4?start=2365&end=2573"
+                  title="We as humans aren't getting any smarter"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
+            </iframe>
+
+        </Callout>
+
+        <p>Perhaps that's what martial arts schools can teach us: we can honour the
         traditions and teachings that gave something its form without assuming that they
         represent the only possible way forward. We can commit ourselves to a particular
         way of playing while remaining curious about other possibilities. In the end,

@@ -131,6 +131,7 @@ export default function InterpretersVsCompilers() {
      by observing the program at runtime, and we call that JIT compilation, brainfuck,
      what can I say</p>
 
+
     <h3>Go tool can compile and can interpret and when you interpret you compile - wait what, what?</h3>
 
     <p>This one is the most confusing of them all, the Go tool, when you run go build
