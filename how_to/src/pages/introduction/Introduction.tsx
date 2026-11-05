@@ -14,14 +14,32 @@ export default function Introduction() {
         for creating a controller and deleting WeatherForecasts is such a fun activity.
        </p>
 
-       <p>
-        The answer is of course not, we do some actual programming in here. We will vibe,
-        we will code and we will write, five times we will implement an interpreter
-        and five different languages we will use. No sciency boring stuff, just pure
-        fun. Before all that we need to introduce some jargon, so we will talk about
+        <Callout type="tip">
+
+            <p>The answer is of course not, we do some actual programming in
+            here. <strong>We will vibe</strong> we will code and we will write, five
+            times we will implement an interpreter and five different languages we
+            will use. No sciency boring stuff, just pure fun. </p>
+
+            <br />
+
+            <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/embed/yq1KIXLrwko?start=110"
+                title="I don't understand my debugger"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
+            </iframe>
+       </Callout>
+       
+        <p>
+        Before all that we need to introduce some jargon, so we will talk about
         love towards programming, about "Statements" of intent and "Expression's"
         of feelings, alongside some other stuff.
-       </p>
+        </p>
 
        <p>
         Five languages or not, which ones to use, that's currently on my mind, perhaps
@@ -37,8 +55,8 @@ export default function Introduction() {
         So I'll do it in the ways of old and share some thoughts along the way. Maybe
         even spin up a debugger — you know, those confusing tools meant for old
         people and ohhhhh boy are they confusing, but the thing about debugging
-        sessions is to just embrace the meaninglessness of it all, you don't fight it,
-        you just embrace it and click step over, step into buttons all day long,
+        sessions is to just embrace the meaninglessness of it all, you don't fight
+        it, you just embrace it and click step over, step into buttons all day long,
         until you realize that you forgot something stupid like seven hours ago.
       </p>
 
@@ -84,7 +102,7 @@ export default function Introduction() {
        <p>
         Okay, okay, enough chit chat and stuff let's see what this interpreter thing
         is all about and be aware if your background is too sciency, you will lose
-        few brain cells along the way I promise you that, so just sit back, relax and 
+        few brain cells along the way I promise you that, so just sit back, relax and
         embrace the complete meaninglessness of it all.
        </p>
 
