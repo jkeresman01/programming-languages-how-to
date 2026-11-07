@@ -30,7 +30,3 @@ module = ast.Module(body=[ast.Expr(print_call)], type_ignores=[])
 module = ast.fix_missing_locations(module)
 code = compile(module, '', 'exec')
 eval(code)
-
-
-
-

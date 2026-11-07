@@ -43,9 +43,9 @@ void PrintBFS(const BST<int32_t> &bst)
 void PrintBST(const BST<int32_t> &bst)
 {
    PrintInorder(bst);
-   /* PrintPreorder(bst); */
-   /* PrintPostorder(bst); */
-   /* PrintBFS(bst); */
+   PrintPreorder(bst);
+   PrintPostorder(bst);
+   PrintBFS(bst);
 }
 
 int main()
