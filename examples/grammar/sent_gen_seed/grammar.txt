@@ -1,0 +1,12 @@
+S -> NP VP
+NP -> Det N
+NP -> Name
+VP -> V
+VP -> V NP
+Det -> the
+Det -> a
+N -> cat
+N -> dog
+Name -> Alice
+V -> sees
+V -> likes
