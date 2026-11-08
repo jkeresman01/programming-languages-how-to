@@ -1,4 +1,5 @@
 import Callout from "../../components/Callout";
+import CodeBlock from "../../components/CodeBlock";
 
 export default function Jargon() {
   return (
@@ -12,7 +13,7 @@ export default function Jargon() {
       trees, grammar, how do we represent the code and <strong>wars</strong> among
       other boring stuff.</p>
 
-      <Callout type="tip">
+     <Callout type="tip">
         <p><strong>They leave me no choice in this wars</strong></p>
 
         <iframe
@@ -27,7 +28,30 @@ export default function Jargon() {
         </iframe>
       </Callout>
 
-      <h2>Random programming lingo</h2>
+      <p>.....</p>
+
+      <h2>Context free grammars</h2>
+
+     <p>
+     Context free grammar is a set of rules that define how to generate 
+     or analyze a set of sentences.
+     </p>
+
+     <p>Each rule is called a production and has the form:  </p>
+
+      <CodeBlock
+        language="plaintext"
+        code={`A -> B C D ...`}
+        />
+
+      <p>
+         The meaning of this production is that any A can be <i>"rewritten"</i> as B
+         C D...  The symbol on left-hand side (lhs), A, is called nonterminal ... it
+         can be exanded further. The symbols on right-hand size can be nonterminals,
+         more As, or terminals (can't be expanded).
+      </p>
+
+           <h2>Random programming lingo</h2>
 
       <Callout type="tip"> 
         <p><strong>General advice: </strong></p>

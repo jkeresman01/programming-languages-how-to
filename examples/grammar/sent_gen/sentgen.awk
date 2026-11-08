@@ -3,18 +3,6 @@
 #   input: grammar file; sequence of nonterminals
 #   output: a random sentence of for each nonterminal
 #
-# Random nonsene:
-#
-# Context free grammar is a set of rules that define how to generate or
-# analyze a set of sentences.
-#
-# Each rule called a production has the form:  A -> B C D ..
-# 
-# The meaning of this production is that any A can be "rewritten" as B C D...
-# The symbol on left-hand side (lhs), A,  is called nonterminal ... it can be 
-# exanded further. The symbols on right-hand size can be nonterminals, more As,
-# or terminals (can't be expanded).
-#
 ###########################################################################
 
 BEGIN {                                                 # Read rules from grammar file
