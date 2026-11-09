@@ -28,14 +28,14 @@ export default function Jargon() {
         </iframe>
       </Callout>
 
-      <p>.....</p>
+     <h1>Random programming lingo</h1>
 
-      <h2>Context free grammars</h2>
+     <p>....</p>
 
-     <p>
-     Context free grammar is a set of rules that define how to generate 
-     or analyze a set of sentences.
-     </p>
+     <h2>Context free grammars</h2>
+
+     <p> Context free grammar is a set of rules that define how to generate or analyze
+     a set of sentences.  </p>
 
      <p>Each rule is called a production and has the form:  </p>
 
@@ -51,7 +51,23 @@ export default function Jargon() {
          more As, or terminals (can't be expanded).
       </p>
 
-           <h2>Random programming lingo</h2>
+     <p>For example here is a grammar for sentences like "the boy walks slowly" and
+     "the girl runs very quickly", uppercase names are used for nonterminals and
+     lowercase terminals</p>
+
+      <CodeBlock
+        language="plaintext"
+        code={`Sentence -> Nounphrase Verbprhase
+Nounphrase -> the boy
+Nounphrase -> the girl
+Verbphrase -> Verb Modlist Adverb
+Verb -> runs
+Verb -> walks
+Modlist -> 
+Modlist -> very Modlist
+Adverb -> quickly
+Adverb -> slowly
+        `} />
 
       <Callout type="tip"> 
         <p><strong>General advice: </strong></p>
