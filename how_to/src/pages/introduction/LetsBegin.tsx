@@ -85,12 +85,12 @@ export default function LetsBegin() {
      
       <Callout type="tip">
 
-        <p><strong>Stick to the fundamentals, Wow</strong></p>
+        <p><strong>Why 5? The important thing is that it's not 1</strong></p>
 
         <iframe
             width="100%"
             height="315"
-            src="https://www.youtube.com/embed/n3pxkcInkTs?start=87&end=169"
+            src="https://www.youtube.com/embed/NvWTnIoQZj4?start=2"
             title="They leave me no choice in this wars"
             loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

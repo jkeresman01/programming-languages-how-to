@@ -53,7 +53,7 @@ export default function Jargon() {
 
      <p>For example here is a grammar for sentences like "the boy walks slowly" and
      "the girl runs very quickly", uppercase names are used for nonterminals and
-     lowercase terminals</p>
+     lowercase for terminals</p>
 
       <CodeBlock
         language="plaintext"
@@ -69,7 +69,56 @@ Adverb -> quickly
 Adverb -> slowly
         `} />
 
-      <Callout type="tip"> 
+       <p>
+        The productions generate sentences for nonterminals and as follows. Suppose
+        <code>Sentence</code> is the starting nonterminal. Choose a production with
+        that nonterminal on left-hand side:
+       </p>
+
+      <CodeBlock
+        language="plaintext"
+        code={`Sentence -> Nounphrase Verbprhase`}
+        />
+
+        <p> Next pick any nonterminal from the right side, for example
+        <code>Nounphrase</code>, and rewrite it with any of the productions for which
+        it is the left side: </p>
+
+      <CodeBlock
+        language="plaintext"
+        code={`Sentence -> Nounphrase Verbprhase
+        -> the girl Verbprhase`}/>
+
+        <p> Now pick any any nonterminal from the resulting right side(this time only
+        <code>Verbprhase</code> remains) and rewrite it by one of its productions: </p>
+
+      <CodeBlock
+        language="plaintext"
+        code={`Sentence -> Nounphrase Verbprhase
+        -> the girl Verbprhase
+        -> the girl Verb Modlist Adverb`
+            }/>
+
+        <p>
+        ... continue rewriting this way until no more nonterminals remains.
+        </p>
+
+      <CodeBlock
+        language="plaintext"
+        code={`Sentence -> Nounphrase Verbprhase
+        -> the girl Verbprhase
+        -> the girl Verb Modlist Adverb
+        -> the girl runs Modlist Adverb
+        -> the girl runs Adverb
+        -> the girl runs very quickly
+        -> the girl runs very very quickly
+`}/>
+
+        <p>The result is a sentence for the starting nonterminal. Here is the small
+        program to generate a sentences in a grammar, starting from any specifed
+        nonterminal. <code>examples/grammar</code></p>
+
+        <Callout type="tip"> 
         <p><strong>General advice: </strong></p>
 
         <p>
