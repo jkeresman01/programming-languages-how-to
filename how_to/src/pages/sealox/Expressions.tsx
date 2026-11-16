@@ -246,7 +246,56 @@ export default function Expressions() {
 
       <h2>Functions</h2>
 
-      
-    </>
+      <p>
+        Functions are basically little reusable pieces of code that you can give a name to
+        and call whenever you need them. Instead of writing the same shit over and over again,
+        you put it inside a function and then just call the function.
+      </p>
+
+      <p>
+        For example, if we had a function called `expressLove`, we could call it like this:
+      </p>
+
+      <CodeBlock
+        language="plaintext"
+        code={`expressLove();`}
+      />
+
+      <p> The function call is an expression because, like all expressions, its job
+      is to produce a value. A function can also take values as input, which we call
+      arguments: </p>
+
+      <CodeBlock
+        language="plaintext"
+        code={`greet("Milica");`}
+      />
+
+       <p> In general a language may specify that funcation calls(operator invocations)
+       emply prefix, infix or postfix notation. These terms indicates, respectively, wheater the 
+       function name appears before, among, or after its arguments. 
+       </p>
+
+      <CodeBlock
+        language="plaintext"
+        code={`prefix: op a b       or      op(a, b)        or      (op a b)
+infix: a op b
+postfix: a b op
+        `}
+      />
+
+      <p>
+        Most imperative languages use <strong>infix</strong> notation for binary
+        operators and prefix notation for unary operators and (with parentheses around
+        arguments) other functions. Lisp uses <strong>prefix</strong> notation for
+        all functions but with the third option from above <i>(Cambridge Polish
+        Notation)</i>.
+      </p>
+
+       <CodeBlock
+         language="plaintext"
+         code={`(* (+ 1 3) 2)        ;that would be (1 + 3) * 2 in infix notation
+(append a b c my_list)`}
+          />
+   </>
   );
 }
