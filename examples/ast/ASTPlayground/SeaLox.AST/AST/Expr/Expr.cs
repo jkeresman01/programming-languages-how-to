@@ -22,11 +22,7 @@ public abstract class Expr
         public Token Operator { get; set; }
         public Expr Right { get; set; }
 
-
-        public override R Accept<R>(IVisitor<R> visitor)
-        {
-            return visitor.VisitBinaryExpr(this);
-        }
+        public override R Accept<R>(IVisitor<R> visitor) => visitor.VisitBinaryExpr(this);
     }
 
     public class Call : Expr
@@ -35,22 +31,14 @@ public abstract class Expr
         public Token Paren { get; set; }
         public List<Expr> Argumnets { get; set; }
 
-
-        public override R Accept<R>(IVisitor<R> visitor)
-        {
-            return visitor.VisitCallExpr(this);
-        }
+        public override R Accept<R>(IVisitor<R> visitor) => visitor.VisitCallExpr(this);
     }
 
     public class Grouping : Expr
     {
         public Expr Expression { get; set; }
 
-
-        public override R Accept<R>(IVisitor<R> visitor)
-        {
-            return visitor.VisitGroupingExpr(this);
-        }
+        public override R Accept<R>(IVisitor<R> visitor) => visitor.VisitGroupingExpr(this);
     }
 
     public class Literal : Expr
@@ -58,10 +46,7 @@ public abstract class Expr
         public Object Value { get; set; }
 
 
-        public override R Accept<R>(IVisitor<R> visitor)
-        {
-            return visitor.VisitLiteralExpr(this);
-        }
+        public override R Accept<R>(IVisitor<R> visitor) => visitor.VisitLiteralExpr(this);
     }
 
     public class Logical : Expr
@@ -69,23 +54,15 @@ public abstract class Expr
         public Expr Left { get; set; }
         public Token Op { get; set; }
         public Expr Right { get; set; }
-
-
-        public override R Accept<R>(IVisitor<R> visitor)
-        {
-            return visitor.VisitLogicalExpr(this);
-        }
+        
+        public override R Accept<R>(IVisitor<R> visitor) => visitor.VisitLogicalExpr(this);
     }
 
     public class Variable : Expr
     {
         public Token Name { get; set; }
 
-
-        public override R Accept<R>(IVisitor<R> visitor)
-        {
-            return visitor.VisitVariableExpr(this);
-        }
+        public override R Accept<R>(IVisitor<R> visitor) => visitor.VisitVariableExpr(this);
     }
 
     public class Assign : Expr
@@ -93,11 +70,7 @@ public abstract class Expr
         public Token Name { get; set; }
         public Expr Value { get; set; }
 
-
-        public override R Accept<R>(IVisitor<R> visitor)
-        {
-            return visitor.VisitAssignExpr(this);
-        }
+        public override R Accept<R>(IVisitor<R> visitor) => visitor.VisitAssignExpr(this);
     }
 
     public class Unary : Expr
@@ -105,11 +78,7 @@ public abstract class Expr
         public Token Operator { get; set; }
         public Expr Right { get; set; }
 
-
-        public override R Accept<R>(IVisitor<R> visitor)
-        {
-            return visitor.VisitUnaryExpr(this);
-        }
+        public override R Accept<R>(IVisitor<R> visitor) => visitor.VisitUnaryExpr(this);
     }
 
 
