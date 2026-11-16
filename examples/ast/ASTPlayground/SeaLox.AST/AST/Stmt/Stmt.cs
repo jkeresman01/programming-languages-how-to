@@ -18,11 +18,7 @@ public abstract class Stmt
     {
         public Expr Expr { get; set; }
 
-
-        public override R Accept<R>(IVisitor<R> visitor)
-        {
-            return visitor.VisitExpressionStmt(this);
-        }
+        public override R Accept<R>(IVisitor<R> visitor) => visitor.VisitExpressionStmt(this);
     }
 
     public class If : Stmt
@@ -31,33 +27,21 @@ public abstract class Stmt
         public Stmt ThenBranch { get; set; }
         public Stmt ElseBranch { get; set; }
 
-
-        public override R Accept<R>(IVisitor<R> visitor)
-        {
-            return visitor.VisitIfStmt(this);
-        }
+        public override R Accept<R>(IVisitor<R> visitor) => visitor.VisitIfStmt(this);
     }
 
     public class Print : Stmt
     {
         public Expr Expression { get; set; }
 
-
-        public override R Accept<R>(IVisitor<R> visitor)
-        {
-            return visitor.VisitPrintStmt(this);
-        }
+        public override R Accept<R>(IVisitor<R> visitor) => visitor.VisitPrintStmt(this);
     }
 
     public class Block : Stmt
     {
         public List<Stmt> Statements { get; set; }
 
-
-        public override R Accept<R>(IVisitor<R> visitor)
-        {
-            return visitor.VisitBlockStmt(this);
-        }
+        public override R Accept<R>(IVisitor<R> visitor) => visitor.VisitBlockStmt(this);
     }
 
     public class Var : Stmt
@@ -65,11 +49,7 @@ public abstract class Stmt
         public Token Name { get; set; }
         public Expr Initalizer { get; set; }
 
-
-        public override R Accept<R>(IVisitor<R> visitor)
-        {
-            return visitor.VisitVarStmt(this);
-        }
+        public override R Accept<R>(IVisitor<R> visitor) => visitor.VisitVarStmt(this);
     }
 
     public class While : Stmt
@@ -77,11 +57,7 @@ public abstract class Stmt
         public Expr Condition { get; set; }
         public Stmt Body { get; set; }
 
-
-        public override R Accept<R>(IVisitor<R> visitor)
-        {
-            return visitor.VisitWhileStmt(this);
-        }
+        public override R Accept<R>(IVisitor<R> visitor) => visitor.VisitWhileStmt(this);
     }
 
 
