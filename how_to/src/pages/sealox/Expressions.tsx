@@ -279,9 +279,7 @@ export default function Expressions() {
         language="plaintext"
         code={`prefix: op a b       or      op(a, b)        or      (op a b)
 infix: a op b
-postfix: a b op
-        `}
-      />
+postfix: a b op`}/>
 
       <p>
         Most imperative languages use <strong>infix</strong> notation for binary
@@ -296,6 +294,46 @@ postfix: a b op
          code={`(* (+ 1 3) 2)        ;that would be (1 + 3) * 2 in infix notation
 (append a b c my_list)`}
           />
+
+     <Callout type="tip">
+        <p><strong>Fun fact: </strong></p>
+
+        <p> Some language implementations allow the compiler to rearrange expressions
+        involving operators whose mathematical abstractions are commutative, assosicate
+        and/or distributive, in order to generate faster code.</p>
+
+        <p>
+        Consider for example following <code>Fortran</code> code:
+        </p>
+
+       <CodeBlock
+         language="plaintext"
+         code={`a = b + c
+d = c + e + b`}
+          />
+
+        <p>
+        Some compilers will rearrange this as:
+        </p>
+
+       <CodeBlock
+         language="plaintext"
+         code={`a = b + c
+d = b + c + e`}
+          />
+
+        <p>
+        They can than recognize the <i>common subexpressions</i> in the first and second 
+        statements to generate code equivalent to: 
+        </p>
+
+        <CodeBlock
+         language="plaintext"
+         code={`a = b + c
+d = a + e`}/>
+
+      </Callout>
+
    </>
   );
 }
