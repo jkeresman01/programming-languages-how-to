@@ -153,6 +153,15 @@ export default function Introduction() {
       hood, to peek at the bits.
       </p>
 
+      <p> Whatever programming language you learn, understaning the decisions that
+      went into its design and implementation will help you use it better. In C++ for
+      example programmers may need to avoid unnecessary temporary variables, and use
+      copy constructors whenver possible to minimize the cost of initalization.  In Java
+      you might wish to use Executor objects rather than explicit thread creation. With
+      certain (poor) compilers you might need to adopt special programming idioms to
+      get faster code, pointers for array traversals, x*x instead of x**2.
+      </p>
+
      <h1>Phases of our journey</h1>
 
       <p> Learning how programming languages work is a journey of gradually uncovering
