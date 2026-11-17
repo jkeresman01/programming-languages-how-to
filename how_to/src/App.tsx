@@ -6,7 +6,6 @@ import Jargon from './pages/introduction/Jargon';
 import InterpretersVsCompilers from './pages/introduction/InterpretersVsCompilers';
 import PhasesOfCompiler from './pages/introduction/PhasesOfCompiler';
 import Shortcuts from './pages/introduction/Shortcuts';
-import LetsBegin from './pages/introduction/LetsBegin';
 import SmallBooberIntroduction from './pages/sealox/Introduction';
 import DataTypes from './pages/sealox/DataTypes';
 import Expressions from './pages/sealox/Expressions';
@@ -24,7 +23,6 @@ export default function App() {
         <Route path="/introduction/jargon" element={<Jargon />} />
         <Route path="/introduction/interpreters-vs-compilers" element={<InterpretersVsCompilers />} />
         <Route path="/introduction/phases-of-compiler" element={<PhasesOfCompiler />} />
-        <Route path="/introduction/lets-begin" element={<LetsBegin />} />
         <Route path="/introduction/shortcuts" element={<Shortcuts />} />
         <Route path="/sealox/introduction" element={<SmallBooberIntroduction />} />
         <Route path="/sealox/data-types" element={<DataTypes />} />

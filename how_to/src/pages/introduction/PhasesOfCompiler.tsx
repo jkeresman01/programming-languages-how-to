@@ -4,212 +4,222 @@ import CodeBlock from '../../components/CodeBlock';
 export default function PhasesOfCompiler() {
   return (
     <>
-    <h1>Phases of a compiler/interpreter </h1>
+      <h1>Phases of a compiler/interpreter</h1>
 
       <p>
-       Okay now that we understand what are we building, let's see which phases we
-       need to go through, but of course dummified a lot, so the main question is:
-       <i><strong>"How do we get from the high level language like Sealox to series
-       of instructions that CPU can actually execute?"</strong></i>
+        Now that we understand what we're building, let's see which phases we need to
+        go through, dummified a lot of course. The main question is:
+        <i><strong> "How do we get from a high level language like Sealox to a series
+        of instructions that a CPU can actually execute?"</strong></i>
       </p>
 
       <Callout type="tip">
-
         <p>
           The phases are roughly three: <strong>front end</strong>, <strong>middle
-          end</strong> and <strong>back end</strong>
+          end</strong> and <strong>back end</strong>.
         </p>
 
         <iframe
-            width="100%"
-            height="315"
-            src="https://www.youtube.com/embed/BT2Cv-Tjq7Q?start=48&end=61"
-            title="Artists built the Macintosh"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/BT2Cv-Tjq7Q?start=48&end=61"
+          title="Artists built the Macintosh"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
         </iframe>
       </Callout>
 
       <p>
-        So just listen, listen she was mindblowing, smoking hot and beauty is subjective
-        btw, but phases are three: <strong>front end</strong> which is usually specific
-        to the source language that we are dealing with or in other words here we
-        are trying to figure out what the poet was trying to say, <strong>middle end
-        </strong> where we optimize a bunch of stuff, like do some constant folding,
-        unroll some loops etc. or in other words when we understand what poet tried
-        to say, we can swap it a bit while keeping the same semantics and finally
-        at the end of the story there comes <strong>back end</strong> so we have now
-        optimized everything that comes to mind and now is time to generate some machine
-        instructions and here the two most obvious things that come to mind would be to
-        generate some bytecode or target a specific chip architecture (x86, ARM...) or in
-        other words we go back from poetry to reality, pure on logic and instructions. Of
-        course it's quite more complex than that, but let's leave it there.
+        So just listen, she was mindblowing, smoking hot, and beauty is subjective
+        btw, but the phases are three. The <strong>front end</strong> is usuallyPhas
+        specific to the source language: here we figure out what the poet was trying
+        to say. In the <strong>middle end</strong>, now that we understand the poet,
+        we can rephrase a bit while keeping the same meaning, which is where
+        optimizations live: constant folding, loop unrolling and so on. Finally the
+        <strong> back end</strong>: everything is optimized, so we generate machine
+        instructions, either bytecode or code for a specific chip (x86, ARM...). We go
+        back from poetry to reality, pure logic and instructions. Of course it's more
+        complex than that, but let's leave it there.
       </p>
 
       <Callout type="note">
-
-      <p><strong>Offtopic: </strong>
-        Okay if your mind isn't blown yet, like mine was, just listen to this next bit.
-        This dude in the video drops this thing called IR (Intermediate Representation),
-        and ohhhhh boy is it neat. It saves us from the dreaded MxN problem and makes
-        optimizations way easier on top of that. You see, if you want to ship compilers
-        for a bunch of languages and target a bunch of architectures, naively you'd
-        need MxN implementations — sounds painful, right? But just listen to this
-        crazy idea: each frontend targets some intermediate representation, and the
-        backend takes that IR and spits out native code. Boom, problem solved. The
-        reason GCC supports so many languages and so many chips is exactly this —
-        every frontend targets an IR, mostly GIMPLE and RTL, and that's that.
-      </p>
+        <p><strong>Phases of a compiler, a quick walkthrough: </strong></p>
 
         <iframe
-            width="100%"
-            height="315"
-            src="https://www.youtube.com/embed/lflRnEfZgYQ?start=3&end=31"
-            title="IR nonsene"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/l-jMsoAY64k?start=67&end=311"
+          title="Phases of a compiler"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
         </iframe>
 
+        <p><strong>Takeaway: </strong>source code goes in one end, passes through a
+        pipeline of stages and something executable comes out the other.</p>
       </Callout>
-
-      <Callout type="tip">
-
-      <p><strong>Fun fact: </strong>
-        Grace Murray Hopper is the women credited for creating the first compiler,
-        she is also responsible for reporting first actual case of bug while working
-        on early Mark 2 computer.
-      </p>
-
-      </Callout>
-
-      <h2>Okay but let's talk about these phases a bit more</h2>
 
       <Callout type="note">
-
-      <p><strong>Phases of compiler by some almost Indian dude</strong></p>
+        <p><strong>Offtopic: </strong>
+          If your mind isn't blown yet, like mine was, listen to this. The dude in the
+          video drops IR (Intermediate Representation), and ohhhhh boy is it neat. If
+          you want compilers for M languages targeting N architectures, naively you'd
+          need M×N implementations, sounds painful, right? So each front end targets
+          one intermediate representation, and each back end takes that IR and spits
+          out native code. That turns M×N into M+N. It's the reason GCC supports so
+          many languages and chips: every front end goes through an IR, mostly GIMPLE
+          and RTL.
+        </p>
 
         <iframe
-            width="100%"
-            height="315"
-            src="https://www.youtube.com/embed/l-jMsoAY64k?start=67&end=311"
-            title="Phases of compiler"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/lflRnEfZgYQ?start=3&end=31"
+          title="Intermediate representation and the MxN problem"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
         </iframe>
-
       </Callout>
-
-      <h3>Frontend</h3>
-
-      <p>
-        Let's start with the frontend, here roughly we also have three phases,
-        scanning(lexing), parsing and static analysis.
-      </p>
-
-      <h4>Scanning</h4>
-       
-      <p>
-        This phase pretty much boils down to one big dumb ass switch statement. We
-        take a stream of characters and group them into tokens (words) that make up
-        our language grammar. There really aren't some better words that come to mind,
-        but just stay with me it will all make sense after some dummified examples.
-      </p>
-
-      <p>
-        There are a few terms that get used in here, "Scanning" and "Lexing", we will
-        use scanning but "Lexing" could be more correct, it comes from Greek root "lex"
-        meaning "word" <strong>and that's that</strong>. This mystery was quite easy.
-        We are essentially just grouping this stream of characters into "words",
-        while ignoring all the noise, like comments and whitespace.
-      </p>
 
       <Callout type="tip">
+        <p><strong>Fun fact: </strong>
+          Grace Hopper is credited with creating one of the first compilers (the A-0
+          system, early 1950s). She also helped popularize the story of the first
+          "actual bug", a moth found in the Harvard Mark II in 1947, though the
+          operators who found it logged it, and engineers were calling glitches
+          "bugs" long before that.
+        </p>
+      </Callout>
 
-      <p><strong>Fun fact: </strong>
-        In ancient times, like two billion years ago, human ancestors—such as Homo
-        erectus discovered how to control fire and somewhere in that period when memory
-        was a precious resource <strong>"Scanner"</strong> referred to part of code
-        that read raw source code characters from disk and <strong>"Lexer"</strong>
-        actually did something useful with those characters, today no one cares anymore.
+      <h2>Front end</h2>
+
+      <p>
+        Here we also have roughly three stages: scanning (lexing), parsing and static
+        analysis.
       </p>
 
-      </Callout>
+      <h3>Scanning</h3>
+
+      <p>
+        This stage pretty much boils down to one big dumb switch statement. We take a
+        stream of characters and group them into tokens (words) that make up our
+        language's grammar, ignoring the noise like comments and whitespace.
+      </p>
+
+      <p>
+        You'll hear both "scanning" and "lexing". We'll say scanning, but "lexing" is
+        arguably more correct, it comes from the Greek <i>lexis</i>, meaning "word".
+        That's that, this mystery was quite easy. In practice people use the two terms
+        interchangeably.
+      </p>
 
       <h4>Concrete example</h4>
 
-      <p>Anyhowzyy, you've now read this sentence. Let's say it's your first time
-      stumbling upon this nonsense. You know, like, we take a stream of characters
-      and group them into tokens (words). Or, if you want an even dumber definition,
-      we could put it like this: the purpose of lexing/scanning and parsing—you know,
-      the first two phases—is to recognize the structure of a program without giving
-      a fuck about its meaning.</p>
+      <p>
+        The purpose of scanning and parsing, the first two stages, is to recognize the
+        structure of a program without caring about its meaning yet. What the hell
+        does that mean? Let's go through a simple example:
+      </p>
 
-     <p>And you might be thinking, "What the fuck does that even mean?  Well, let's
-     try to go through this nonsense using a simple example:</p>
-
-    <CodeBlock
-        language="plaintext" code={`var diana = "There is no zebra in here"`}
+      <CodeBlock
+        language="plaintext"
+        code={`var diana = "There is no zebra in here"`}
       />
 
-      <p>So in our example the scanner would read characters one by one: 'v' 'a' 'r'
-      ' ' 'd' 'i' 'a' 'n' 'a' ' ' '=' '"' 'T' 'h' 'e' 'r' 'e' ' ' 'i' 's' 'n' 'o' '
-      ' 'z' 'e' 'b' 'r' 'a' ' ' 'i' 'n' ' ' 'h' 'e' 'r' 'e' '"' and than group them
-      into this so called tokens</p>
-
-      <h5>Tokens</h5>
-
       <p>
-        Tokens are the basic build blocks of program - the shortest strings of characters with 
-        individual meaning (keywords, identifiers ...)
+        The scanner reads characters one by one: <code>v</code>, <code>a</code>,
+        <code>r</code>, a space, <code>d</code>, <code>i</code>... and groups them
+        into tokens:
       </p>
 
-    <Callout type="tip">
-        <p><strong>What is scanning (No BS explanation)</strong></p>
+      <CodeBlock
+        language="plaintext"
+        code={`var                          -> keyword
+diana                        -> identifier
+=                            -> operator
+"There is no zebra in here"  -> string literal`}
+      />
+
+      <p>
+        <strong>Tokens</strong> are the basic building blocks of a program: the
+        shortest strings of characters with an individual meaning (keywords,
+        identifiers, operators, literals...).
+      </p>
+
+      <Callout type="tip">
+        <p><strong>What is scanning (no BS explanation)</strong></p>
 
         <iframe
-            width="100%"
-            height="315"
-            src="https://www.youtube.com/embed/BI3K-ME3L74?start=163"
-            title="What is scanning (No BS explanation)"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/BI3K-ME3L74?start=163"
+          title="What is scanning"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
         </iframe>
+
+        <p><strong>Takeaway: </strong>the scanner turns a stream of characters into a
+        stream of tokens.</p>
       </Callout>
 
-      <h4>Parsing</h4>
-
-      <p>...</p>
-
-      <h4>Static Analysis</h4>
+      <h3>Parsing</h3>
 
       <p>
-        First two stages like scanning and parsing tend to be boring and dull,
-        pretty much the same across all implementations. Static analysis is where
-        individual quirks and characteristics of each language come into play.
+        The parser takes the flat list of tokens and gives it structure. It builds a
+        tree out of them, usually called a syntax tree, where each node is a piece of
+        the program and its children are the pieces it's made of. Take
+        <code> 1 + 2 * 3</code>. A flat list of tokens doesn't say whether to add or
+        multiply first, but the tree does:
       </p>
 
-      <h3>Middle end</h3>
+      <CodeBlock
+        language="plaintext"
+        code={`
+    +
+   / \\
+  1   *
+     / \\
+    2   3`}
+      />
 
-      <p>We now understand what the poet tried to say, so we can swap it out while
-      keeping the same semantics, and we sneak in some optimizations along the way.</p>
+      <p>
+        The multiplication sits lower in the tree, so it's evaluated first, which is
+        precedence showing up as shape.
+      </p>
 
-      <p>Optimizations are just a weird and complex topic on its own, most of them happen
-      on intermediate representation, but not all of them, and one can spend decades
-      trying to figure it all out, it's a huge rabbit hole on its own with a bunch
-      of fancy words like: "strength reduction", "scalar replacement of aggregates",
-      "loop invariant code motion", "common subexpression elimination"...  </p>
+      <h3>Static analysis</h3>
 
-      <p>Like what does this even mean, while some languages just keep it cute and
-      simple, generate relatively unoptimized code and just roll on, Lua tends to do
-      just that.</p>
+      <p>
+        The first two stages, scanning and parsing, tend to be boring and dull,
+        pretty much the same across all implementations. Static analysis is where the
+        individual quirks of each language come into play. This is where we figure out
+        what names refer to (binding) and, in a statically typed language, check that
+        the types line up, all before the program runs.
+      </p>
+
+      <h2>Middle end</h2>
+
+      <p>
+        We now understand what the poet tried to say, so we can rephrase it while
+        keeping the same meaning, sneaking in some optimizations along the way.
+      </p>
+
+      <p>
+        Optimization is a weird and complex topic of its own, most of it happens on the
+        intermediate representation, though not all, and one can spend decades on it.
+        It's a huge rabbit hole with a bunch of fancy words: "strength reduction",
+        "scalar replacement of aggregates", "loop invariant code motion", "common
+        subexpression elimination"... Some languages keep it cute and simple,
+        generating relatively unoptimized code and rolling on. Lua tends to do just
+        that.
+      </p>
 
       <Callout type="note">
         <p><strong>Constant folding</strong></p>
@@ -223,10 +233,11 @@ export default function PhasesOfCompiler() {
           height="315"
           src="https://www.youtube.com/embed/68oO51ZQyHY?start=170&end=193"
           title="Constant folding"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}
-        ></iframe>
+          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
+        </iframe>
       </Callout>
 
       <p>Seriously people can spend their entire careers only thinking about
@@ -234,50 +245,72 @@ export default function PhasesOfCompiler() {
       just give a small overview of what can be done: </p>
 
 
-   <Callout type="note">
-        <h4>What compilers can and cannot do</h4>
+      <Callout type="note">
+        <p><strong>What compilers can and cannot do</strong></p>
 
         <p>
-         We won't go too much into that, since as I said you can spend decades learning
-         only about optimizations, but here is a short summary of what compilers generally
-         can and cannot do in terms of Bentley rules for optimizing work and some more:
+          A short summary in terms of the Bentley rules for optimizing work, and some
+          more:
         </p>
 
         <iframe
           width="100%"
           height="315"
           src="https://www.youtube.com/embed/ulJm7_aTiQM?start=828&end=1070"
-          title="Bentley Rules for Optimizing Work"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          title="What compilers can and cannot optimize"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}
-        ></iframe>
+          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
+        </iframe>
       </Callout>
 
-      <h4>C++ optimizer vs Java JIT</h4>
-
-       <Callout type="note">
-        <h4>C++ optimizer vs Java JIT</h4>
+      <Callout type="note">
+        <p><strong>C++ optimizer vs Java JIT</strong></p>
 
         <iframe
           width="100%"
           height="315"
           src="https://www.youtube.com/embed/1b-9mPTQV1Y"
           title="C++ optimizer vs Java JIT"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}
-        ></iframe>
+          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
+        </iframe>
       </Callout>
 
-      <h3>Backend</h3>
+      <h2>Back end</h2>
 
       <p>
-        Finally we are at the backend and it's time to go from poetry to reality,
-        from user's "source code" to more primitive assembly like instructions that
-        the machine can actually understand.
+        Finally we're at the back end, and it's time to go from poetry to reality:
+        from the user's source code to more primitive, assembly-like instructions the
+        machine can understand. Here we pick a target. We can generate bytecode for a
+        virtual machine, which is portable but needs that VM to run, or native machine
+        code for a specific architecture, which is fast but tied to that hardware.
+        Phase 5 takes the native route.
       </p>
 
-      </>
+
+      <h2>Which phases do our projects use?</h2>
+
+      <p>
+        Not every implementation uses all three phases, and that's exactly why we
+        build five of them:
+      </p>
+
+      <ul>
+        <li><strong>Phases 1 and 2 (Jlox, Sealox):</strong> front end only. We scan,
+        parse and analyze, then execute by walking the tree directly. No middle end,
+        no back end.</li>
+        <li><strong>Phase 3 (functional Lox):</strong> same front end, different style
+        of building it.</li>
+        <li><strong>Phase 4 (Luapp):</strong> front end, then instead of machine code
+        we generate Lua source. Lua's own implementation does the rest.</li>
+        <li><strong>Phase 5 (Jlang):</strong> the whole pipeline. We build the front
+        end and emit LLVM IR, and LLVM handles the middle end and back end.</li>
+      </ul>
+
+    </>
   );
 }

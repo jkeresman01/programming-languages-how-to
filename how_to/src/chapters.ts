@@ -5,22 +5,27 @@ export const chapters = [
       { label: 'Preface', path: '/' },
       { label: 'Introduction', path: '/introduction/introduction' },
       { label: 'Interpreters vs Compilers', path: '/introduction/interpreters-vs-compilers' },
-      { label: 'Programming languages lingo', path: '/introduction/jargon' },
       { label: 'Phases of Compiler', path: '/introduction/phases-of-compiler' },
       { label: 'Our options', path: '/introduction/shortcuts' },
-      { label: 'Lets begin', path: '/introduction/lets-begin' },
     ],
   },
   {
-    title: 'Sealox && Jlox',
+    title: 'Programming languages lingo',
     items: [
-      { label: 'Introduction', path: '/sealox/introduction' },
+      { label: 'Introduction', path: '/introduction/jargon' },
       { label: 'DataTypes', path: '/sealox/data-types' },
       { label: 'Expressions', path: '/sealox/expressions' },
       { label: 'Statements', path: '/sealox/statements' },
       { label: 'Control Flow', path: '/sealox/control-flow' },
   ],
   },
+  {
+    title: 'Sealox && Jlox',
+    items: [
+      { label: 'Introduction', path: '/sealox/introduction' },
+   ],
+  },
+
   {
     title: 'Luapp',
     items: [

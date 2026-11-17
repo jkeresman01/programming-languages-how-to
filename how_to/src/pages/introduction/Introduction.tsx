@@ -14,66 +14,57 @@ export default function Introduction() {
         for creating a controller and deleting WeatherForecasts is such a fun activity.
        </p>
 
-        <Callout type="tip">
-
-            <p>The answer is of course not, we do some actual programming in
-            here. <strong>We will vibe</strong> we will code and we will write, five
-            times we will implement an interpreter and five different languages we
-            will use. No sciency boring stuff, just pure fun. </p>
-
-            <br />
-
-            <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/yq1KIXLrwko?start=110"
-                title="I don't understand my debugger"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
-            </iframe>
-       </Callout>
-       
+      <Callout type="tip">
         <p>
-        Before all that we need to introduce some jargon, so we will talk about
-        love towards programming, about "Statements" of intent and "Expression's"
-        of feelings, alongside some other stuff.
+          The answer is of course not, we do some actual programming in here. We will
+          build programming languages: an interpreter, a second interpreter, a
+          functional one, a transpiler and finally a real compiler. Five projects,
+          five different languages, one question that keeps coming back: <strong>how
+          does source code become something a machine can run?</strong> No sciency
+          boring stuff, just pure fun.
         </p>
 
-       <p>
-        Five languages or not, which ones to use, that's currently on my mind, perhaps
-        reading will get my inspiration back — but again does it really matter? Given
-        an implementation in one, AI can handle the rest. But with all of that, the
-        joy of programming has disappeared. <strong>Don't you agree?</strong>  We've
-        lost that sense of building something slowly, step by step. You know to write
-        a small piece of software and you can't really tell if it works — you have
-        to test how it behaves, step by step, day by day.
+        <iframe
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/yq1KIXLrwko?start=110"
+          title="What are we cooking"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
+        </iframe>
+      </Callout>
+
+      <h2>Why do this by hand?</h2>
+
+      <p>
+        Given an implementation in one language, AI can handle the rest, so does it
+        really matter which languages we pick? Maybe not. But with all of that, a
+        certain joy has disappeared: building something slowly, step by step, writing a
+        small piece of software, not knowing if it works, and finding out day by day.
+        So we'll do it the old way and share some thoughts along the way.
       </p>
 
       <p>
-        So I'll do it in the ways of old and share some thoughts along the way. Maybe
-        even spin up a debugger — you know, those confusing tools meant for old
-        people and ohhhhh boy are they confusing, but the thing about debugging
-        sessions is to just embrace the meaninglessness of it all, you don't fight
-        it, you just embrace it and click step over, step into buttons all day long,
-        until you realize that you forgot something stupid like seven hours ago.
+        That includes the debugger, that confusing tool meant for old people. The
+        thing about a debugging session is that you don't fight it, you just click
+        step over, step into, all day long, until you realize you forgot something
+        stupid seven hours ago.
       </p>
 
       <Callout type="tip">
-        <strong>I don't understand my debugger</strong>
-
-        <br />
+        <p><strong>I don't understand my debugger</strong></p>
 
         <iframe
-            width="100%"
-            height="315"
-            src="https://www.youtube.com/embed/QfIOCyXBttY"
-            title="I don't understand my debugger"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/QfIOCyXBttY"
+          title="I don't understand my debugger"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
         </iframe>
       </Callout>
 
@@ -99,32 +90,159 @@ export default function Introduction() {
           </p>
        </Callout>
 
-       <p>
-        Okay, okay, enough chit chat and stuff let's see what this interpreter thing
-        is all about and be aware if your background is too sciency, you will lose
-        few brain cells along the way I promise you that, so just sit back, relax and
+      <p>
+        Okay, enough chit chat. Be aware that if your background is too sciency you
+        will lose a few brain cells along the way, I promise. So sit back, relax and
         embrace the complete meaninglessness of it all.
-       </p>
+      </p>
 
       <Callout type="tip">
         <p><strong>Just embrace the complete meaninglessness of it all</strong></p>
 
-        <br />
-       
-        <iframe 
-          width="100%" 
+        <iframe
+          width="100%"
           height="315"
           src="https://www.youtube.com/embed/4GZdeWWraTs?start=114&end=136"
-          title="Just embrace the BS"
+          title="Just embrace the meaninglessness"
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
           style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
         </iframe>
+      </Callout>
 
-       </Callout>
+      <h2>Why study programming languges?</h2>
+
+      <p> Programming languages are central to computer science, and to the typical
+      computer science curriculum. Students who have become familiar with one or more
+      programming languages are often curios to learn about other programming and to
+      figure out what is going <i>"under the hood"</i>. Learning about programming
+      languages is interesting, but it's also practical.</p>
+
+     <Callout type="tip">
+
+        <p>
+          Also, good understaning of languge design and it's implementation can help
+          you choose the most appropriate languages for any given task. Most programming
+          languges are better for some problems than the others.
+        </p>
+
+        <p><strong>Should one choose C++, Go or Rust for systems programming?</strong></p>
+        <p><strong>Should one choose Ada or C for embedded systems?</strong></p>
+        <p><strong>Should one choose Python, C#, Java or TypeScript for web based application?</strong></p>
+
+        <br />
+
+        <iframe
+            width="100%"
+            height="315"
+            src="https://www.youtube.com/embed/Sg4U4r_AgJU?start=49&end=245"
+            title="They leave me no choice in this wars"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
+        </iframe>
+
+      </Callout>
+
+     <h1>Phases of our journey</h1>
+
+      <p> Learning how programming languages work is a journey of gradually uncovering
+      the layers of abstraction that make them possible. Rather than trying to
+      understand everything at once, we'll approach this through several projects,
+      each introducing new concepts, challenges, and ways of thinking.
+      </p>
+
+      <p>
+        We'll start by implementing a small programming language, explore different
+        interpreter architectures, experiment with functional programming, build a
+        transpiler, and eventually dive into compilation with LLVM.
+      </p>
+
+      <p>
+        Each phase builds upon the previous one, giving us an opportunity to revisit familiar
+        concepts from a different perspective, deepen our understanding, and gradually expand
+        what we're capable of building. The goal isn't simply to finish five projects, but
+        to understand the ideas behind them and develop the confidence to create our own
+        programming languages.
+      </p>
+
+      <Callout type="tip">
+
+            <p><strong>Difference between professionals and amateurs</strong></p>
+
+            <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/embed/NYClgSGzWnI?start=5"
+                title="Lua in 15s"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
+            </iframe>
+      </Callout>
+
+      <h2><strong>Phase 1:</strong> Lox programming language - Java</h2>
+
+      <p> We'll start by building Lox, a small dynamicaly typed scripting language.
+      This is where we'll get our hands dirty with the fundamentals: lexical analysis,
+      parsing, abstract syntax trees, environments, and interpretation. The goal is
+      to understand how source code goes from a stream of characters to an executable
+      program.</p>
+
+      <h2><strong>Phase 2:</strong> Sealox - Interpreter - C#</h2>
+
+      <p> Having built our first interpreter, we'll revisit the concepts and implement
+      another language interpreter in C#. This gives us an opportunity to reinforce
+      what we've learned, experiment with different implementation choices, and better
+      understand how the pieces of an interpreter fit together.  </p>
 
 
-      </>
+      <h2><strong>Phase 3:</strong> Lox in functional programming language</h2>
+
+      <p>
+       Now we'll take a different approach and implement Lox using functional
+       programming. We'll explore how concepts such as immutability, recursion,
+       pattern matching, and higher-order functions can influence the way we design
+       and implement a programming language.
+      </p>
+
+
+      <h2><strong>Phase 4:</strong> Transpiler - Luapp (Lua with classes) - Lua</h2>
+
+      <p> So far, we've focused on interpreting programs. Now it's time to explore
+      another approach: transpilation. We'll build Luapp, an extension of Lua that
+      introduces classes, and translate our source code into another language rather
+      than executing it directly.  </p>
+
+
+      <h2><strong>Phase 5:</strong> Jlang - LLVM - Compiler - C++</h2>
+
+      <p> Finally, we'll take things a step further and build Jlang, a compiled
+      programming language using C++ and LLVM. We'll explore intermediate
+      representations, code generation, and the compilation pipeline, bringing together
+      many of the concepts we've encountered throughout our journey.  </p>
+
+      <Callout type="tip">
+
+        <p><strong>How many programming languaghes should you know? What Bjarne thinks
+        about this?</strong></p>
+
+        <iframe
+            width="100%"
+            height="315"
+            src="https://www.youtube.com/embed/NvWTnIoQZj4?start=2"
+            title="They leave me no choice in this wars"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
+        </iframe>
+
+      </Callout>
+    </>
+
   );
 }

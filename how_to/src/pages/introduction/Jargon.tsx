@@ -89,7 +89,7 @@ Adverb -> slowly
         code={`Sentence -> Nounphrase Verbprhase
         -> the girl Verbprhase`}/>
 
-        <p> Now pick any any nonterminal from the resulting right side(this time only
+        <p>Now pick any any nonterminal from the resulting right side(this time only
         <code>Verbprhase</code> remains) and rewrite it by one of its productions: </p>
 
       <CodeBlock
