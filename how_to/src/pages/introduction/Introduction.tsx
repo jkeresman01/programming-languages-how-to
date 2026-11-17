@@ -113,11 +113,11 @@ export default function Introduction() {
 
       <h2>Why study programming languges?</h2>
 
-      <p> Programming languages are central to computer science, and to the typical
-      computer science curriculum. Students who have become familiar with one or more
-      programming languages are often curios to learn about other programming and to
-      figure out what is going <i>"under the hood"</i>. Learning about programming
-      languages is interesting, but it's also practical.</p>
+      <p>Programming languages are central to computer science, and to the typical
+      computer science curriculum. Students who have become familiar with one or
+      more programming languages are often curios to learn about other programming
+      languges and to figure out what is going on <i>"under the hood"</i>. Learning about
+      programming languages is interesting, but it's also practical.</p>
 
      <Callout type="tip">
 
@@ -145,6 +145,13 @@ export default function Introduction() {
         </iframe>
 
       </Callout>
+
+      <p> But, but but many will argue that high-level programmer should not bother
+      with implementation details, there are times, however, when understaning of those
+      details is virutally essential. The tenacious bug or unusual system-building
+      problem may be drammaticly easier to handle if one is willing to peek under the
+      hood, to peek at the bits.
+      </p>
 
      <h1>Phases of our journey</h1>
 
