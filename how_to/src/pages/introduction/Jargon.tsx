@@ -37,7 +37,20 @@ export default function Jargon() {
      <p> Context free grammar is a set of rules that define how to generate or analyze
      a set of sentences.  </p>
 
-     <p>Each rule is called a production and has the form:  </p>
+     <p>Each rule is called a production and has a head - its name and a body,
+     which describes what it generates. The body is simply a list of symbols, which come in
+     two forms: </p>
+
+      <p><strong>Terminal</strong> is simply a letter from the grammars alphabet, 
+      in context of syntactic grammar the terminals are individual lexemes, tokens comming 
+      from the scanner, like <code>if</code> or <code>1234</code>. They are called "terminals" 
+      in the sense of "end point" because they don't lead to any further moves in this game, you
+      simply produce that one symbol</p>
+
+      <p><strong>Nonterminal</strong> is a named reference to another rule in means 
+      <strong>play</strong> that rule and insert whatever it produces here.</p>
+
+      <p>Here is small example: </p>
 
       <CodeBlock
         language="plaintext"
