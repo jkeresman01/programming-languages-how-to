@@ -131,6 +131,53 @@ Adverb -> slowly
         program to generate a sentences in a grammar, starting from any specifed
         nonterminal. <code>examples/grammar</code></p>
 
+        <p>Well that's all fun and games if you are interested in generating random
+        sentences which isn't very useful, so let's see something more interesting</p>
+
+        <p>Arithmetic expressions with the operators: +,-,/,* can be expressed with
+        grammar like this: </p>
+
+    <CodeBlock
+            language="plaintext"
+            code={`
+ expr -> term
+         expr + term
+         expr - term
+
+ term -> factor
+         term * factor
+         term / factor
+
+ factor -> number
+            ( expr )
+`}/>
+
+    <p>For example expression in standard infix notation 1 + 2 * 3 is parsed like
+    this:</p>
+
+    <CodeBlock
+            language="plaintext"
+            code={`
+
+                   expr
+                 /  |  \
+                /   |   \
+               /    |    \
+             exp    |    term
+              |     |     /|\
+              |     |    / | \
+             term   | term |  \
+              |     |   |  |   \
+              |     |   |  |    \
+             factor |factor|   factor
+              |     |   |  |      |
+              |     |   |  |      |
+             number |number|    number
+              |     |   |  |      |
+              |     |   |  |      |
+              1     +   2  *      3
+`}/>
+
         <Callout type="tip"> 
         <p><strong>General advice: </strong></p>
 
