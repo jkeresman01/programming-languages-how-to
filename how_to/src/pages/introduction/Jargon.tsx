@@ -5,14 +5,14 @@ import ParseTree from "../../components/ParseTree";
 export default function Jargon() {
   return (
     <>
-      <h1>Jargon & some boring stuff</h1>
+      <h1>Jargon, trees and some boring stuff</h1>
 
       <p>Was thinking about writing about parser stage for quite some time, but some
       jargon is important before we move to that, we will of course be led by love,
       talk about "Statements" of intent and "Expressions" of feelings, there is also
       this thing called "ExpressionStatement" which is quite fun, but also nature,
       trees, grammar, how do we represent the code and <strong>wars</strong> among
-      other boring stuff.</p>
+      other things some boring stuff.</p>
 
      <Callout type="tip">
         <p><strong>They leave me no choice in this wars</strong></p>
@@ -29,18 +29,18 @@ export default function Jargon() {
         </iframe>
       </Callout>
 
-     <h1>Random programming lingo</h1>
+     <h2>What is this shit all about?</h2>
 
      <p>....</p>
 
      <h2>Context free grammars</h2>
 
-     <p>Context free grammar is a set of rules that define how to generate or analyze
+     <p>Context free grammar is a set of rules that defines how to generate or analyze
      a set of sentences.</p>
 
-     <p>Each rule is called a production and has a head - its name and a body, which
+     <p>Each of those rules is called a production and has a head - its name and a body, which
      describes what it generates. The body is simply a list of symbols, which come in
-     two forms: </p>
+     two forms: Terminals and Nonterminals.</p>
 
       <p><strong>Terminal</strong> is simply a letter from the grammars alphabet,
       in context of syntactic grammar the terminals are individual lexemes, tokens
@@ -48,10 +48,10 @@ export default function Jargon() {
       called "terminals" in the sense of "end point" because they don't lead to any
       further moves in this game, you simply produce that one symbol</p>
 
-      <p><strong>Nonterminal</strong> is a named reference to another rule in means
-      <strong>play</strong> that rule and insert whatever it produces here.</p>
+      <p><strong>Nonterminal</strong> is a named reference to another rule it means
+      <strong> play</strong> that rule and insert whatever it produces here.</p>
 
-      <p>Here is small example: </p>
+      <p>Here is small example to clarify this shit: </p>
 
       <CodeBlock
         language="plaintext"
@@ -61,13 +61,13 @@ export default function Jargon() {
       <p>
          The meaning of this production is that any A can be <i>"rewritten"</i> as B
          C D...  The symbol on left-hand side (lhs), A, is called nonterminal ... it
-         can be exanded further. The symbols on right-hand size can be nonterminals,
+         can be expanded further. The symbols on right-hand size can be nonterminals,
          more As, or terminals (can't be expanded).
       </p>
 
-     <p>For example here is a grammar for sentences like "the boy walks slowly" and
-     "the girl runs very quickly", uppercase names are used for nonterminals and
-     lowercase for terminals</p>
+     <p>Here is a grammar for sentences like "the boy walks slowly" and "the girl runs
+     very quickly". (uppercase names are used for nonterminals and lowercase names
+     for terminals.</p>
 
       <CodeBlock
         language="plaintext"
@@ -84,7 +84,7 @@ Adverb -> slowly
         `} />
 
        <p>
-        The productions generate sentences for nonterminals and as follows. Suppose
+        The productions generate sentences for nonterminals as follows. Suppose
         <code>Sentence</code> is the starting nonterminal. Choose a production with
         that nonterminal on left-hand side:
        </p>
@@ -94,9 +94,19 @@ Adverb -> slowly
         code={`Sentence -> Nounphrase Verbprhase`}
         />
 
-        <p> Next pick any nonterminal from the right side, for example
+        <p> Next pick any nonterminal from the right hand side, for example
         <code>Nounphrase</code>, and rewrite it with any of the productions for which
         it is the left side: </p>
+
+        <p>Here we have 2 options:</p>
+
+      <CodeBlock
+        language="plaintext"
+        code ={`
+Nounphrase -> the boy
+Nounphrase -> the girl`}/>
+        
+      <p>So we can rewrite this shit like this:</p>
 
       <CodeBlock
         language="plaintext"
