@@ -30,12 +30,7 @@ export default function Shortcuts() {
 
       </Callout>
 
-      <h2>Single-pass compilers</h2>
-        <p>
-
-        </p>
-
-      <h2>Tree-walk interpreters</h2>
+       <h2>Tree-walk interpreters</h2>
         <p>
 
         </p>
@@ -43,9 +38,17 @@ export default function Shortcuts() {
 
       <h2>Transpilers</h2>
 
+      <p>
+
+      </p>
+
+
+        <h2>Single-pass compilers</h2>
         <p>
 
         </p>
+
+
 
       <h2>Just in time compilation</h2>
 

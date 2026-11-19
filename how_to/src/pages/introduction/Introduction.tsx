@@ -146,20 +146,20 @@ export default function Introduction() {
 
       </Callout>
 
-      <p> But, but but many will argue that high-level programmer should not bother
+      <p>But, but but many will argue that high-level programmer should not bother
       with implementation details, there are times, however, when understaning of those
       details is virutally essential. The tenacious bug or unusual system-building
       problem may be drammaticly easier to handle if one is willing to peek under the
       hood, to peek at the bits.
       </p>
 
-      <p> Whatever programming language you learn, understaning the decisions that
+      <p>Whatever programming language you learn, understaning the decisions that
       went into its design and implementation will help you use it better. In C++ for
       example programmers may need to avoid unnecessary temporary variables, and use
       copy constructors whenver possible to minimize the cost of initalization.  In Java
       you might wish to use Executor objects rather than explicit thread creation. With
       certain (poor) compilers you might need to adopt special programming idioms to
-      get faster code, pointers for array traversals, x*x instead of x**2.
+      get faster code, pointers for array traversals, x*x instead of x**2. 
       </p>
 
      <h1>Phases of our journey</h1>

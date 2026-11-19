@@ -1,5 +1,6 @@
 import Callout from "../../components/Callout";
 import CodeBlock from "../../components/CodeBlock";
+import ParseTree from "../../components/ParseTree";
 
 export default function Jargon() {
   return (
@@ -34,20 +35,20 @@ export default function Jargon() {
 
      <h2>Context free grammars</h2>
 
-     <p> Context free grammar is a set of rules that define how to generate or analyze
-     a set of sentences.  </p>
+     <p>Context free grammar is a set of rules that define how to generate or analyze
+     a set of sentences.</p>
 
-     <p>Each rule is called a production and has a head - its name and a body,
-     which describes what it generates. The body is simply a list of symbols, which come in
+     <p>Each rule is called a production and has a head - its name and a body, which
+     describes what it generates. The body is simply a list of symbols, which come in
      two forms: </p>
 
-      <p><strong>Terminal</strong> is simply a letter from the grammars alphabet, 
-      in context of syntactic grammar the terminals are individual lexemes, tokens comming 
-      from the scanner, like <code>if</code> or <code>1234</code>. They are called "terminals" 
-      in the sense of "end point" because they don't lead to any further moves in this game, you
-      simply produce that one symbol</p>
+      <p><strong>Terminal</strong> is simply a letter from the grammars alphabet,
+      in context of syntactic grammar the terminals are individual lexemes, tokens
+      comming from the scanner, like <code>if</code> or <code>1234</code>. They are
+      called "terminals" in the sense of "end point" because they don't lead to any
+      further moves in this game, you simply produce that one symbol</p>
 
-      <p><strong>Nonterminal</strong> is a named reference to another rule in means 
+      <p><strong>Nonterminal</strong> is a named reference to another rule in means
       <strong>play</strong> that rule and insert whatever it produces here.</p>
 
       <p>Here is small example: </p>
@@ -155,103 +156,103 @@ Adverb -> slowly
     <p>For example expression in standard infix notation 1 + 2 * 3 is parsed like
     this:</p>
 
-    <CodeBlock
-            language="plaintext"
-            code={`
+    <ParseTree/>
 
-                   expr
-                 /  |  \
-                /   |   \
-               /    |    \
-             exp    |    term
-              |     |     /|\
-              |     |    / | \
-             term   | term |  \
-              |     |   |  |   \
-              |     |   |  |    \
-             factor |factor|   factor
-              |     |   |  |      |
-              |     |   |  |      |
-             number |number|    number
-              |     |   |  |      |
-              |     |   |  |      |
-              1     +   2  *      3
-`}/>
+     <p>
+       Here is the grammar from above turned into a working calculator in AWK. It's
+       a recursive descent parser: one function per nonterminal, and each function
+       parses exactly the thing its rule describes. 
+   </p>
 
-        <Callout type="tip"> 
-        <p><strong>General advice: </strong></p>
+   <CodeBlock
+        language="plaintext"
+        code={`NF > 0 {
+    gsub(/[+\\-*\\/()]/, " & ") 
+    nf = split($0, op)         
+    f = 1                     
+    e = expr()
 
-        <p>
-          And this is where things get <strong>even more interesting</strong>,
-          because the same kind of thing happens in corporate environments. You have
-          different groups of people, each with their own set of values, beliefs,
-          interests, and ideas about what a good employee should look like. And
-          depending on which group holds the power, certain behaviours get rewarded,
-          certain people get promoted, and certain ways of thinking become the
-          accepted norm. People who conform to these values become visible, their
-          contributions get recognized, and their voices carry weight. Meanwhile,
-          those who don't conform might find themselves ignored, overlooked,
-          or slowly made invisible, regardless of how competent they actually are.
-        </p>
+    if (f <= nf)
+        printf("error at %s\\n", op[f])
+    else
+        printf("\\t%.8g\\n", e)
+}`}
+      />
 
-        <p>
-        And, of course, some people learn how to play this game. Some develop
-        what we like to call soft skills, although sometimes the term is
-        doing a lot of heavy lifting here. Knowing how to communicate, build
-        relationships, and navigate disagreements can genuinely be useful,
-        but there's also the less flattering side of it: knowing <strong>whose
-        ass to kiss</strong>, when to agree with the boss, which opinions to
-        keep to yourself, and how to make the right people feel important. When 
-        you have to play into a version that certain people want to hear and when 
-        can you simply be yourself and speak truth. 
-        </p>
+    <p>
+       This runs once per input line. The
+       <code> gsub</code> puts spaces around every operator and parenthesis so that
+       <code> split</code> can chop the line into tokens, stored in <code>op[1]</code>,
+       <code> op[2]</code> and so on. The variable <code>f</code> is our position in
+       that token list. We call <code>expr()</code>, and if there are tokens left over
+       afterwards the input wasn't a valid expression, otherwise we print the result.
+     </p>
 
-        <p>Young players enter the game, willing to learn its codes. At first,
-        they see only the game they're taught to play (game of codes). But with
-        time, some begin to notice the other games unfolding around them. They
-        start recognizing the rules nobody speaks of, the moves nobody explains,
-        alongside dependencies between different player who seem to be playing an
-        entirely different game. Some learn how to play. Others never even realize
-        there's more than one game.</p>
+     <CodeBlock
+        language="plaintext"
+        code={`function expr(e) {
+    e = term()
+    while (op[f] == "+" || op[f] == "-")
+        e = op[f++] == "+" ? e + term() : e - term()
+    return e
+}`}
+      />
 
-        <p><strong>The way to see the bigger picture</strong> is to step outside
-        the boundaries of any particular group. People who share the same values
-        and belief systems tend to form groups, sometimes belonging to several
-        at once. But to understand what's really happening, you have to abstract
-        yourself from those affiliations. Only then can you begin to see how people
-        position themselves within these groups: who plays along to fit in, who
-        challenges the rules, who benefits from keeping things the way they are,
-        and who gets pushed to the margins. You stop seeing things solely from the
-        perspective of someone playing the game and start seeing the game itself.
-        </p>
+      <p>
+        The rule <code>expr -&gt; expr + term</code> refers to itself on the left,
+        and a recursive descent parser can't do that directly, it would call
+        itself forever. The trick is to turn that recursion into a loop: parse
+        one <code>term</code>, then as long as the next token is <code>+</code> or
+        <code>-</code>, consume it and parse another <code>term</code>.
+      </p>
 
-        <p>
-        But be careful: once you see the game behind the game, you can never
-        unsee it.
-        </p>
+      <CodeBlock
+        language="plaintext"
+        code={`function term(e) {
+    e = factor()
+    while (op[f] == "*" || op[f] == "/")
+        e = op[f++] == "*" ? e * factor() : e / factor()
+    return e
+}`}
+      />
 
-        <p> <strong>Red flags:</strong> "You're invisible to us now." "We made him
-        look good/bad." "Do you want to leave on your own, so people remember you as
-        a high performer, or do you want us to make you look bad?" And, of course,
-        the endless use of "we" when what someone really means is "I" — or when
-        nobody wants to take individual responsibility for what's happening.  </p>
+      <p>
+        Exactly the same shape one level down, for
+        <code> *</code> and <code>/</code>, calling <code>factor</code> instead. This
+        is where precedence comes from: <code>expr</code> only ever sees whole terms,
+        so multiplication and division are always grouped before addition and
+        subtraction. No precedence table needed, the layering of the grammar is the
+        precedence.
+      </p>
 
-        <p><strong>Jonathan Blow clips that made me consider quitting my job for
-        real</strong></p>
+      <CodeBlock
+        language="plaintext"
+        code={`function factor(e) {
+    if (op[f] ~ /^[+-]?([0-9]+[.]?[0-9]*|[.][0-9]+)$/) {
+        return op[f++]
+    } else if (op[f] == "(") {
+        f++
+        e = expr()
+        if (op[f++] != ")")
+            printf("error: missing ) at %s\\n", op[f])
+        return e
+    } else {
+        printf("error: expected number or ( at %s\\n", op[f])
+    }
+}`}
+    />
 
-        <iframe
-            width="100%"
-            height="315"
-            src="https://www.youtube.com/embed/nL8GWU9M8LY?start=175&end=229"
-            title="Jonathan Blow clips that made me consider quitting my job for real"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
-        </iframe>
+      <p>
+        The bottom of the grammar. If the current token looks like a number we return it
+        and move on. If it's an opening parenthesis we skip it, call <code>expr()</code>
+        again to parse everything inside, and then expect a closing parenthesis. That
+        call back to <code>expr</code> is the recursion that lets parentheses nest as
+        deep as you like, and it's what takes us from the bottom of the grammar back
+        up to the top.
+      </p>
 
-       </Callout>
     </>
-
   );
 }
+
+
