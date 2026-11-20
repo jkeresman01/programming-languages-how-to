@@ -45,24 +45,6 @@ export default function PhasesOfCompiler() {
       </p>
 
       <Callout type="note">
-        <p><strong>Phases of a compiler, a quick walkthrough: </strong></p>
-
-        <iframe
-          width="100%"
-          height="315"
-          src="https://www.youtube.com/embed/l-jMsoAY64k?start=67&end=311"
-          title="Phases of a compiler"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
-        </iframe>
-
-        <p><strong>Takeaway: </strong>source code goes in one end, passes through a
-        pipeline of stages and something executable comes out the other.</p>
-      </Callout>
-
-      <Callout type="note">
         <p><strong>Offtopic: </strong>
           If your mind isn't blown yet, like mine was, listen to this. The dude in the
           video drops IR (Intermediate Representation), and ohhhhh boy is it neat. If
@@ -258,21 +240,6 @@ diana                        -> identifier
           height="315"
           src="https://www.youtube.com/embed/ulJm7_aTiQM?start=828&end=1070"
           title="What compilers can and cannot optimize"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
-        </iframe>
-      </Callout>
-
-      <Callout type="note">
-        <p><strong>C++ optimizer vs Java JIT</strong></p>
-
-        <iframe
-          width="100%"
-          height="315"
-          src="https://www.youtube.com/embed/1b-9mPTQV1Y"
-          title="C++ optimizer vs Java JIT"
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen

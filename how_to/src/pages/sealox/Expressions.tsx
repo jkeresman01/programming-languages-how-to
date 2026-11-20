@@ -195,54 +195,6 @@ export default function Expressions() {
         code={`var result = a * b + (c - b) / 2`}
       />
 
-      <h3>Boring definitions</h3>
-
-      <h4>Precedence</h4>
-
-      <p>
-        Precedence determines which operator is evaluated first in an expression
-        containing a mixture of different operators, or in other words, we evaluate
-        this shit '*' and '/' before '+' and '-'
-      </p>
-
-      <h4>Associativity</h4>
-
-      <p>
-        Associativity specifies wheater sequences of operators with equal precedence
-        group to the left or right, or in other words when operator is left-associative
-        this shit:
-      </p>
-
-      <CodeBlock
-        language="plaintext"
-        code={`5 - 3 + 1`}
-      />
-
-      <p>
-        is equal to this shit, or in other words we group to left:
-      </p>
-
-      <CodeBlock
-        language="plaintext"
-        code={`(5 - 3) + 1`}
-      />
-
-      <Callout type="tip">
-        <p><strong>Why we care about this</strong></p>
-
-        <iframe
-            width="100%"
-            height="315"
-            src="https://www.youtube.com/embed/iy-zL9wBd9g?start=121&end=163"
-            title="They leave me no choice in this wars"
-            loading="lazy"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
-        </iframe>
-      </Callout>
-
 
       <h2>Functions</h2>
 

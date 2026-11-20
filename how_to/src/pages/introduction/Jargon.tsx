@@ -12,7 +12,7 @@ export default function Jargon() {
       talk about "Statements" of intent and "Expressions" of feelings, there is also
       this thing called "ExpressionStatement" which is quite fun, but also nature,
       trees, grammar, how do we represent the code and <strong>wars</strong> among
-      other things some boring stuff.</p>
+      some other boring stuff.</p>
 
      <Callout type="tip">
         <p><strong>They leave me no choice in this wars</strong></p>
@@ -213,8 +213,49 @@ Nounphrase -> the girl`}/>
         and a recursive descent parser can't do that directly, it would call
         itself forever. The trick is to turn that recursion into a loop: parse
         one <code>term</code>, then as long as the next token is <code>+</code> or
-        <code>-</code>, consume it and parse another <code>term</code>.
+        <code>-</code>, consume it and parse another <code>term</code>. The loop
+        also gives us left associativity for free.
+     </p>
+
+     <p>
+       But please, just listen to this sentence: "The loop also gives us left
+       associativity for free.", what the fuck does this even mean, so let's introduce
+       some definitions which might put me in great jeopardy for, you know, well
+       being boring.
+     </p>
+
+      <h3>Boring definitions</h3>
+
+      <h4>Precedence</h4>
+
+      <p>
+        Precedence determines which operator is evaluated first in an expression
+        containing a mixture of different operators, or in other words, we evaluate
+        this shit '*' and '/' before '+' and '-'
       </p>
+
+      <h4>Associativity</h4>
+
+      <p>
+        Associativity specifies wheater sequences of operators with equal precedence
+        group to the left or right, or in other words when operator is left-associative
+        this shit:
+      </p>
+
+      <CodeBlock
+        language="plaintext"
+        code={`5 - 3 + 1`}
+      />
+
+      <p>
+        is equal to this shit, or in other words we group to left:
+      </p>
+
+      <CodeBlock
+        language="plaintext"
+        code={`(5 - 3) + 1`}
+      />
+
 
       <CodeBlock
         language="plaintext"
