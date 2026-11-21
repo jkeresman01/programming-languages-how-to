@@ -163,21 +163,6 @@ export default function Preface() {
         eventually develop their own approaches.
       </p>
 
-      <Callout type="tip">
-        <p><strong>How to pick up a duck: </strong></p>
-
-        <iframe
-          width="100%"
-          height="315"
-          src="https://www.youtube.com/embed/aYbvhPHPC98?start=0&end=14"
-          title="How to pick up a duck"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
-        </iframe>
-      </Callout>
-
       <p>
         A game has its own origins, traditions and ways of being played, but each time
         I play it, I bring my own habits, strategies and understanding. I might get
@@ -187,6 +172,7 @@ export default function Preface() {
       </p>
 
       <Callout type="tip">
+
         <p>
           The game may have been founded by <strong>Ants and Open Radio</strong> (this
           is how it started for me), but the ways people experience, play and develop

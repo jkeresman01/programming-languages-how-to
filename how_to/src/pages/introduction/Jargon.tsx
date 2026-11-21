@@ -1,6 +1,7 @@
 import Callout from "../../components/Callout";
 import CodeBlock from "../../components/CodeBlock";
 import ParseTree from "../../components/ParseTree";
+import PrecedenceDiagram from "../../components/Precedence";
 
 export default function Jargon() {
   return (
@@ -38,9 +39,9 @@ export default function Jargon() {
      <p>Context free grammar is a set of rules that defines how to generate or analyze
      a set of sentences.</p>
 
-     <p>Each of those rules is called a production and has a head - its name and a body, which
-     describes what it generates. The body is simply a list of symbols, which come in
-     two forms: Terminals and Nonterminals.</p>
+     <p>Each of those rules is called a production and has a head - its name and a
+     body, which describes what it generates. The body is simply a list of symbols,
+     which come in two forms: Terminals and Nonterminals.</p>
 
       <p><strong>Terminal</strong> is simply a letter from the grammars alphabet,
       in context of syntactic grammar the terminals are individual lexemes, tokens
@@ -113,7 +114,7 @@ Nounphrase -> the girl`}/>
         code={`Sentence -> Nounphrase Verbprhase
         -> the girl Verbprhase`}/>
 
-        <p>Now pick any any nonterminal from the resulting right side(this time only
+        <p>Now pick any nonterminal from the resulting right side(this time only
         <code>Verbprhase</code> remains) and rewrite it by one of its productions: </p>
 
       <CodeBlock
@@ -139,10 +140,55 @@ Nounphrase -> the girl`}/>
 `}/>
 
         <p>The result is a sentence for the starting nonterminal. Here is the small
-        program to generate a sentences in a grammar, starting from any specifed
-        nonterminal. <code>examples/grammar</code></p>
+        program to generate sentences in a grammar, starting from any specifed
+        nonterminal.</p>
 
-        <p>Well that's all fun and games if you are interested in generating random
+      <CodeBlock
+        language="plaintext"
+        code={`
+BEGIN {                                                 # Read rules from grammar file
+    while(getline < "grammar" > 0) {
+        if($2 == "->") {
+            i = ++lhs[$1]                               # Count LHS
+            rhscnt[$1, i] = NF-2                        # How many in RHS
+            for(j = 3; j <= NF; j++)
+                rhlist[$1, i, j -2] = $j
+        } else {
+            print "Illegal production: " $0
+        }
+    }
+}
+
+{
+    if($1 in lhs) {                                     # Non terminal to expand
+        gen($1)
+        printf("/\\n")
+    } else {
+        print "Unknown nonterminal: " $0
+    }
+}
+
+function gen(sym, i, j) {                               # Print random phrase derived from SYM
+    if(sym in lhs) {                                    # A nonterminal
+        i = int(lhs[sym] * rand()) + 1
+        for(j = 1; j <= rhscnt[sym, i]; j++) {          # Expand RHS
+            gen(rhslist[sym, i, j]
+        }
+    } else {
+        printf("%s ", sym)
+    }
+}
+`} />
+
+        <p>The program reads reads the grammar from a file and records the number
+        of times each lef-hand side occurs, plus the number of right-hand sides in
+        has, and componenets of each.  Thereafter, whenever a nonterminal is typed,
+        a random sentence for that nonterminal is generated. Strings generated this
+        way are called <strong>derivations</strong>, because each is <i>derived</i>
+        from the rules in the grammar. In each step of the game, you pick a rule and
+        follow what it tells you to do.</p>
+
+        <p>Wich is all fun and games if you are interested in generating random
         sentences which isn't very useful, so let's see something more interesting</p>
 
         <p>Arithmetic expressions with the operators: +,-,/,* can be expressed with
@@ -163,8 +209,7 @@ Nounphrase -> the girl`}/>
             ( expr )
 `}/>
 
-    <p>For example expression in standard infix notation 1 + 2 * 3 is parsed like
-    this:</p>
+    <p>Expression in standard infix notation 1 + 2 * 3 can be parsed like this:</p>
 
     <ParseTree/>
 
@@ -174,6 +219,19 @@ Nounphrase -> the girl`}/>
        parses exactly the thing its rule describes. 
    </p>
 
+    <Callout type="tip">
+           <p><strong>A recursive descent parser</strong> is a literal translation
+           of the grammar's rules straight into imperative code. Each rule becomes
+           a function, it is called "recursive descent" because it walks down the
+           grammar. We also use direction metaphorically, when talking about "high"
+           and "low" precedence, but orientation is reversed. In a top-down parser
+           you reach the lowest precedence expressions first because they may in turn
+           contain subexpressions of higer precedence.</p>
+
+           <PrecedenceDiagram />
+       </Callout>
+
+    
    <CodeBlock
         language="plaintext"
         code={`NF > 0 {
@@ -256,8 +314,7 @@ Nounphrase -> the girl`}/>
         code={`(5 - 3) + 1`}
       />
 
-
-      <CodeBlock
+           <CodeBlock
         language="plaintext"
         code={`function term(e) {
     e = factor()

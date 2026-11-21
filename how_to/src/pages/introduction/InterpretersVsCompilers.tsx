@@ -105,18 +105,21 @@ export default function InterpretersVsCompilers() {
     <p>
       So for a C++ program to run it has to be processed by a compiler which would then
       generate a lower level form, in this case object files, which then get combined by
-      a linker generating an executable program, UNIX-like operating systems alongside
-      many game consoles employ a popular executable file format called Executable
-      and Linkable Format (ELF), ELF files usually carry no extension (though .elf
-      shows up in embedded and console land), while executables under Windows have
-      .exe extension, nonetheless the file contains a partial image of the program
-      as it exists in memory when it runs, partial because the program generally
-      allocates memory at runtime and it's usually comprised of at least these four
-      segments (Text segment, Data segment, BSS segment and read-only data segment),
-      anyhowzzy let's get back to the main point, the executable gets generated for a
-      specific hardware/system combination, so it would run fast — but that's also
+      a linker generating an executable program,  the executable than gets generated for
+      a specific hardware/system combination, so it would run fast — but that's also
       the downside, portability suffers. Nonetheless, C++ source is still a portable one.
     </p>
+
+     <Callout type="tip">
+          <p><strong>Fun fact: </strong>UNIX-like operating systems alongside many
+          game consoles employ a popular executable file format called Executable and
+          Linkable Format (ELF), ELF files usually carry no extension (though .elf shows
+          up in embedded and console land), while executables under Windows have .exe
+          extension, nonetheless the file contains a partial image of the program as it
+          exists in memory when it runs, partial because the program generally allocates
+          memory at runtime and it's usually comprised of at least these four segments
+          (Text segment, Data segment, BSS segment and read-only data segment)</p>
+      </Callout>
 
     <h3>Java — compiled && interpreted language, wait what what?</h3>
 
