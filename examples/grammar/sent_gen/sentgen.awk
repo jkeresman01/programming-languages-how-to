@@ -1,4 +1,5 @@
 ###########################################################################
+#
 # sentgen - Random sentence generator
 #   input: grammar file; sequence of nonterminals
 #   output: a random sentence of for each nonterminal
@@ -11,7 +12,7 @@ BEGIN {                                                 # Read rules from gramma
             i = ++lhs[$1]                               # Count LHS
             rhscnt[$1, i] = NF-2                        # How many in RHS
             for(j = 3; j <= NF; j++)
-                rhlist[$1, i, j -2] = $j
+                rhslist[$1, i, j -2] = $j
         } else {
             print "Illegal production: " $0
         }
