@@ -54,11 +54,7 @@ export default function Jargon() {
 
       <p>Here is a small example to clarify this shit: </p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`A -> B C D ...`}
-        />
-
+      <CodeBlock language="awk" code={`A -> B C D ...`} />
       <p>
          The meaning of this production is that any A can be <i>"rewritten"</i> as B
          C D...  The symbol on the left-hand side (lhs), A, is called a nonterminal
@@ -70,9 +66,7 @@ export default function Jargon() {
      very quickly" (uppercase names are used for nonterminals and lowercase names
      for terminals).</p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`Sentence -> Nounphrase Verbphrase
+      <CodeBlock language="awk" code={`Sentence -> Nounphrase Verbphrase
 Nounphrase -> the boy
 Nounphrase -> the girl
 Verbphrase -> Verb Modlist Adverb
@@ -90,36 +84,28 @@ Adverb -> slowly
         that nonterminal on the left-hand side:
        </p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`Sentence -> Nounphrase Verbphrase`}
-        />
+      <CodeBlock language="awk" code={`Sentence -> Nounphrase Verbphrase`} />
 
         <p> Next pick any nonterminal from the right-hand side, for example{' '}
+
         <code>Nounphrase</code>, and rewrite it with any of the productions for which
         it is the left side: </p>
 
         <p>Here we have 2 options:</p>
 
-      <CodeBlock
-        language="plaintext"
-        code ={`
+      <CodeBlock language="awk" code ={`
 Nounphrase -> the boy
 Nounphrase -> the girl`}/>
         
       <p>So we can rewrite this shit like this:</p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`Sentence -> Nounphrase Verbphrase
+      <CodeBlock language="awk" code={`Sentence -> Nounphrase Verbphrase
         -> the girl Verbphrase`}/>
 
         <p>Now pick any nonterminal from the resulting right side (this time only{' '}
         <code>Verbphrase</code> remains) and rewrite it by one of its productions: </p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`Sentence -> Nounphrase Verbphrase
+      <CodeBlock language="awk" code={`Sentence -> Nounphrase Verbphrase
         -> the girl Verbphrase
         -> the girl Verb Modlist Adverb`
             }/>
@@ -128,8 +114,7 @@ Nounphrase -> the girl`}/>
         ... continue rewriting this way until no more nonterminals remain.
         </p>
 
-      <CodeBlock
-        language="plaintext"
+      <CodeBlock language="awk"
         code={`Sentence -> Nounphrase Verbphrase
         -> the girl Verbphrase
         -> the girl Verb Modlist Adverb
@@ -144,13 +129,13 @@ Nounphrase -> the girl`}/>
         nonterminal.</p>
 
       <CodeBlock
-        language="plaintext"
+        language="awk"
         code={`
-BEGIN {                                                 # Read rules from grammar file
+BEGIN {                                              # Read rules from grammar file
     while(getline < "grammar" > 0) {
         if($2 == "->") {
-            i = ++lhs[$1]                               # Count LHS
-            rhscnt[$1, i] = NF-2                        # How many in RHS
+            i = ++lhs[$1]                            # Count LHS
+            rhscnt[$1, i] = NF-2                     # How many in RHS
             for(j = 3; j <= NF; j++)
                 rhslist[$1, i, j -2] = $j
         } else 
@@ -160,7 +145,7 @@ BEGIN {                                                 # Read rules from gramma
 }
 
 {
-    if($1 in lhs) {                                     # Non terminal to expand
+    if($1 in lhs) {                                  # Non terminal to expand
         gen($1)
         printf("\\n")
     } else {
@@ -168,10 +153,10 @@ BEGIN {                                                 # Read rules from gramma
     }
 }
 
-function gen(sym, i, j) {                               # Print random phrase derived from SYM
-    if(sym in lhs) {                                    # A nonterminal
+function gen(sym, i, j) {                             # Print random phrase derived from SYM
+    if(sym in lhs) {                                  # A nonterminal
         i = int(lhs[sym] * rand()) + 1
-        for(j = 1; j <= rhscnt[sym, i]; j++) {          # Expand RHS
+        for(j = 1; j <= rhscnt[sym, i]; j++) {        # Expand RHS
             gen(rhslist[sym, i, j])
         }
     } else {
@@ -194,9 +179,7 @@ function gen(sym, i, j) {                               # Print random phrase de
         <p>Arithmetic expressions with the operators: +,-,/,* can be expressed with
         a grammar like this: </p>
 
-    <CodeBlock
-            language="plaintext"
-            code={`
+    <CodeBlock language="awk" code={`
  expr -> term
          expr + term
          expr - term
@@ -233,7 +216,7 @@ function gen(sym, i, j) {                               # Print random phrase de
 
     
    <CodeBlock
-        language="plaintext"
+        language="awk"
         code={`NF > 0 {
     gsub(/[+\\-*\\/()]/, " & ") 
     nf = split($0, op)         
@@ -257,7 +240,7 @@ function gen(sym, i, j) {                               # Print random phrase de
      </p>
 
      <CodeBlock
-        language="plaintext"
+        language="awk"
         code={`function expr(e) {
     e = term()
     while (op[f] == "+" || op[f] == "-")
@@ -300,22 +283,16 @@ function gen(sym, i, j) {                               # Print random phrase de
         left-associative this shit:
       </p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`5 - 3 + 1`}
-      />
+      <CodeBlock code={`5 - 3 + 1`} />
 
       <p>
         is equal to this shit, or in other words we group to left:
       </p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`(5 - 3) + 1`}
-      />
+      <CodeBlock code={`(5 - 3) + 1`} />
 
-           <CodeBlock
-        language="plaintext"
+      <CodeBlock
+        language="awk"
         code={`function term(e) {
     e = factor()
     while (op[f] == "*" || op[f] == "/")
@@ -333,7 +310,7 @@ function gen(sym, i, j) {                               # Print random phrase de
       </p>
 
       <CodeBlock
-        language="plaintext"
+        language="awk"
         code={`function factor(e) {
     if (op[f] ~ /^[+-]?([0-9]+[.]?[0-9]*|[.][0-9]+)$/) {
         return op[f++]

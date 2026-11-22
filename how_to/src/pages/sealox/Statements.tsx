@@ -15,10 +15,7 @@ export default function Statements() {
       cause effects, they don't evaluate to a value, you've already seen at least one
       through this book, the <strong>print</strong> statement: </p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`print "She was smoking hot" + ", " + " mind blown!;"`}
-      />
+      <CodeBlock language="javascript" code={`print "She was smoking hot" + ", " + " mind blown!;"`} />
 
       <p>A <strong>print</strong> statement evaluates a single expression and displays
       the result to the user.</p>
@@ -47,31 +44,18 @@ export default function Statements() {
       let (JavaScript, TypeScript), local (Lua) or to simply use no declaration keyword
       (Python, Ruby).</p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`var variable = "She was smoking hot";`}
-      />
+      <CodeBlock language="javascript" code={`var variable = "She was smoking hot";`} />
 
       <p>If you omit the initializer the variable's value defaults to
       <strong> nil</strong>.</p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`var nilValue`}
-      />
+      <CodeBlock language="javascript" code={`var nilValue`} />
 
       <p>Once declared you can naturally access and assign a variable using its name.</p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`var variable = "She was smoking hot";`}
-      />
+      <CodeBlock language="javascript" code={`var variable = "She was smoking hot";`} />
 
-      <CodeBlock
-        language="plaintext"
-        code={`print variable`}
-      />
-
+      <CodeBlock language="javascript" code={`print variable`} />
     </>
   );
 }

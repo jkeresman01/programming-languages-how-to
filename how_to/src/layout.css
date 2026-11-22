@@ -340,9 +340,9 @@
 
 .code-block {
   margin: 1rem 0 1.5rem;
+  /* border: 1px solid var(--border); */
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid var(--border);
 }
 
 .code-block pre {
@@ -360,44 +360,6 @@
   padding: 0;
   border-radius: 0;
   color: var(--text-primary);
-}
-
-/* Override Prism tomorrow theme to match our palette */
-.code-block .token.comment,
-.code-block .token.prolog,
-.code-block .token.doctype,
-.code-block .token.cdata {
-  color: var(--syntax-comment);
-}
-
-.code-block .token.keyword {
-  color: var(--syntax-keyword);
-}
-
-.code-block .token.string,
-.code-block .token.char {
-  color: var(--syntax-string);
-}
-
-.code-block .token.number {
-  color: var(--syntax-number);
-}
-
-.code-block .token.function,
-.code-block .token.builtin {
-  color: var(--syntax-function);
-}
-
-.code-block .token.class-name {
-  color: var(--syntax-type);
-}
-
-.code-block .token.operator {
-  color: var(--syntax-operator);
-}
-
-.code-block .token.punctuation {
-  color: var(--syntax-punctuation);
 }
 
 .doc-table {

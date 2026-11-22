@@ -108,10 +108,7 @@ export default function PhasesOfCompiler() {
         does that mean? Let's go through a simple example:
       </p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`var diana = "There is no zebra in here"`}
-      />
+      <CodeBlock language="javascript" code={`var diana = "There is no zebra in here"`} />
 
       <p>
         The scanner reads characters one by one: <code>v</code>, <code>a</code>,
@@ -120,7 +117,7 @@ export default function PhasesOfCompiler() {
       </p>
 
       <CodeBlock
-        language="plaintext"
+        language="javascript"
         code={`var                          -> keyword
 diana                        -> identifier
 =                            -> operator
@@ -162,7 +159,6 @@ diana                        -> identifier
       </p>
 
       <CodeBlock
-        language="plaintext"
         code={`
     +
    / \\

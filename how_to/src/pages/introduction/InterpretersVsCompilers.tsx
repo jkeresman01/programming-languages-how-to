@@ -43,10 +43,7 @@ export default function InterpretersVsCompilers() {
        like this:
       </p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`print "She was smoking hot" + ", " + " mind blown!"`}
-      />
+      <CodeBlock language="bash" code={`print "She was smoking hot" + ", " + " mind blown!"`} />
 
       <p>
         Let's say, hypothetically that this is a compiled language, that would mean that
@@ -67,19 +64,13 @@ export default function InterpretersVsCompilers() {
         you could do something like this:
       </p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`sb compile main.sb`}
-      />
+      <CodeBlock language="bash" code={`sb compile main.sb`} />
 
       <p>
        But you could also do something like this:
       </p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`sb execute main.sb`}
-      />
+      <CodeBlock language="bash" code={`sb execute main.sb`} />
 
       <p>
         The <strong>`compile`</strong> command would generate machine code, while the

@@ -50,10 +50,7 @@ export default function Expressions() {
         <p>Let's say that we have two function calls like this written in our smallboober
         language</p>
 
-        <CodeBlock
-            language="plaintext"
-            code={`isSheSingle() and expressLove()`}
-        />
+        <CodeBlock language="bash" code={`isSheSingle() and expressLove()`} />
 
         <p>So first function would check her relationship status and second would just
         I don't know print 'express love'. In order for 'and' operator to return true
@@ -65,10 +62,7 @@ export default function Expressions() {
 
         <p>If this concept still doesn't sit, here is even more simplified example: </p>
 
-        <CodeBlock
-            language="plaintext"
-            code={`false and expressLove()`}
-        />
+        <CodeBlock language="bash" code={`false and expressLove()`} />
 
         <p>Both operands must be true in order for an 'and' expression to evaluate to
         true, we can see as soon when we evaluate the left false operand that that isn't
@@ -78,25 +72,13 @@ export default function Expressions() {
 
       <h3>'and' and 'or' examples</h3>
 
-      <CodeBlock
-        language="plaintext"
-        code={`true and false; => false`}
-      />
+      <CodeBlock language="awk" code={`true and false; => false`} />
 
-      <CodeBlock
-        language="plaintext"
-        code={`true and true; => true`}
-      />
+      <CodeBlock language="awk" code={`true and true; => true`} />
 
-      <CodeBlock
-        language="plaintext"
-        code={`false or false; => false`}
-      />
+      <CodeBlock language="awk" code={`false or false; => false`} />
 
-      <CodeBlock
-        language="plaintext"
-        code={`true or false; => true`}
-      />
+      <CodeBlock language="awk" code={`true or false; => true`} />
 
       <p>Okay, okay there is one additional logical operator called not operator,
       which returns false if its operand is true and vice versa, useful when you wanna
@@ -105,47 +87,25 @@ export default function Expressions() {
 
       <h3>Not operator examples</h3>
 
-      <CodeBlock
-        language="plaintext"
-        code={`!true; => false`}
-      />
-
-      <CodeBlock
-        language="plaintext"
-        code={`!false; => true`}
-      />
+      <CodeBlock language="awk" code={`!true; => false`} />
+      <CodeBlock language="awk" code={`!false; => true`} />
 
       <h2>Arithmetic operators</h2>
 
       <p>Sealox like most of C style languages supports basic set of arithmetic
       operators:</p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`a + b;`}
-      />
-
-      <CodeBlock
-        language="plaintext"
-        code={`a - b;`}
-      />
-
-      <CodeBlock
-        language="plaintext"
-        code={`a * b;`}
-      />
-
-      <CodeBlock
-        language="plaintext"
-        code={`a / b;`}
-      />
+      <CodeBlock language="awk" code={`a + b;`} />
+      <CodeBlock language="awk" code={`a - b;`} />
+      <CodeBlock language="awk" code={`a * b;`} />
+      <CodeBlock language="awk" code={`a / b;`} />
 
       <p>Operators placed in the middle of operands are called <strong>infix </strong>
       operators, while operators that come before the operands are called
       <strong> prefix</strong> operators</p>
 
       <CodeBlock
-        language="plaintext"
+        language="awk"       
         code={`-a`}
       />
 
@@ -154,35 +114,12 @@ export default function Expressions() {
       <p>Smallboober like most of the C style languages will support standard set of
       comparison operators</p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`greater > than;`}
-      />
-
-      <CodeBlock
-        language="plaintext"
-        code={`less < than;`}
-      />
-
-      <CodeBlock
-        language="plaintext"
-        code={`greaterThan >= orEqual;`}
-      />
-
-      <CodeBlock
-        language="plaintext"
-        code={`lessThan <= orEqual;`}
-      />
-
-      <CodeBlock
-        language="plaintext"
-        code={`equal == equal;`}
-      />
-
-      <CodeBlock
-        language="plaintext"
-        code={`not != equal;`}
-      />
+      <CodeBlock language="awk" code={`greater > than;`} />
+      <CodeBlock language="awk" code={`less < than;`} />
+      <CodeBlock language="awk" code={`greaterThan >= orEqual;`} />
+      <CodeBlock language="awk" code={`lessThan <= orEqual;`} />
+      <CodeBlock language="awk" code={`equal == equal;`} />
+      <CodeBlock language="awk" code={`not != equal;`} />
 
       <h3>Precedence and associativity</h3>
 
@@ -190,11 +127,7 @@ export default function Expressions() {
       you would normally expect and for grouping you can just use '()' in cases where
       precedence isn't smth you want</p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`var result = a * b + (c - b) / 2`}
-      />
-
+      <CodeBlock language="javascript" code={`var result = a * b + (c - b) / 2`} />
 
       <h2>Functions</h2>
 
@@ -208,19 +141,13 @@ export default function Expressions() {
         For example, if we had a function called `expressLove`, we could call it like this:
       </p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`expressLove();`}
-      />
+      <CodeBlock language="javascript" code={`expressLove();`} />
 
       <p> The function call is an expression because, like all expressions, its job
       is to produce a value. A function can also take values as input, which we call
       arguments: </p>
 
-      <CodeBlock
-        language="plaintext"
-        code={`greet("Milica");`}
-      />
+      <CodeBlock language="javascript" code={`greet("Milica");`} />
 
        <p> In general a language may specify that funcation calls(operator invocations)
        emply prefix, infix or postfix notation. These terms indicates, respectively, wheater the 
@@ -228,7 +155,7 @@ export default function Expressions() {
        </p>
 
       <CodeBlock
-        language="plaintext"
+        language="awk"
         code={`prefix: op a b       or      op(a, b)        or      (op a b)
 infix: a op b
 postfix: a b op`}/>
@@ -242,7 +169,7 @@ postfix: a b op`}/>
       </p>
 
        <CodeBlock
-         language="plaintext"
+        language="lisp"
          code={`(* (+ 1 3) 2)        ;that would be (1 + 3) * 2 in infix notation
 (append a b c my_list)`}
           />
@@ -258,31 +185,20 @@ postfix: a b op`}/>
         Consider for example following <code>Fortran</code> code:
         </p>
 
-       <CodeBlock
-         language="plaintext"
-         code={`a = b + c
-d = c + e + b`}
-          />
+       <CodeBlock language="awk" code={`a = b + c d = c + e + b`} />
 
         <p>
         Some compilers will rearrange this as:
         </p>
 
-       <CodeBlock
-         language="plaintext"
-         code={`a = b + c
-d = b + c + e`}
-          />
+       <CodeBlock language="awk" code={`a = b + c d = b + c + e`} />
 
         <p>
         They can than recognize the <i>common subexpressions</i> in the first and second 
         statements to generate code equivalent to: 
         </p>
 
-        <CodeBlock
-         language="plaintext"
-         code={`a = b + c
-d = a + e`}/>
+        <CodeBlock language="awk" code={`a = b + c d = a + e`}/>
 
       </Callout>
 
