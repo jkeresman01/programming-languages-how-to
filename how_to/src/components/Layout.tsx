@@ -4,7 +4,6 @@ import Sidebar from './Sidebar';
 import ThemeToggle from './ThemeToggle';
 import PageNav from './PageNav';
 import ScrollHints from './ScrollHints';
-import Paywall from './Paywall';
 
 export default function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(
@@ -79,7 +78,7 @@ export default function Layout() {
             )}
           </button>
           <span className="header-title">
-            Just talk, don&rsquo;t walk: The continuation of the thought
+            Programming languages, how to?
           </span>
           <div className="header-spacer" />
           <ThemeToggle />
@@ -92,7 +91,6 @@ export default function Layout() {
         </main>
       </div>
       <ScrollHints />
-      <Paywall />
     </div>
   );
 }

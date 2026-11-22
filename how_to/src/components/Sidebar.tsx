@@ -32,7 +32,7 @@ export default function Sidebar({ open, onClose }: Props) {
       <aside className={`sidebar ${open ? 'sidebar--open' : ''}`}>
         <div className="sidebar-header">
           <a href="#/" className="sidebar-logo">
-            <span className="sidebar-logo-text">Just Talk, Don't walk.</span>
+            <span className="sidebar-logo-text">Languages Made Simple</span>
           </a>
         </div>
         <nav className="sidebar-nav">

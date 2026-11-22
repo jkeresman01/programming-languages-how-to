@@ -16,9 +16,9 @@ export default function DataTypes() {
       represent what's true and what's false, today most modern languages have dedicated
       data types, so we will just follow that and use plain simple `True` and `False`</p>
 
-      <CodeBlock code={`True  will represent truth`} />
+      <CodeBlock language="javascript" code={`true  will represent truth`} />
 
-      <CodeBlock code={`False will represent falsehood`} />
+      <CodeBlock language="javascript" code={`false will represent falsehood`} />
 
       <h2>Numbers</h2>
        <p>
@@ -26,9 +26,9 @@ export default function DataTypes() {
          number: double precision floating point.
        </p>
 
-      <CodeBlock code={`1234 will represent integer`} />
+      <CodeBlock language="javascript" code={`1234 will represent integer`} />
 
-      <CodeBlock code={`12.34 will represent decimal`} />
+      <CodeBlock language="javascript" code={`12.34 will represent decimal`} />
 
       <h2>Strings</h2>
 
@@ -37,11 +37,11 @@ export default function DataTypes() {
         string literals, so we will also follow that.
       </p>
 
-      <CodeBlock code={`"She was smoking hot"`} />
+      <CodeBlock language="javascript" code={`"She was smoking hot"`} />
 
-      <CodeBlock code={`"" is an empty string`} />
+      <CodeBlock language="javascript" code={`"" is an empty string`} />
 
-      <CodeBlock code={`"123" and this is a string, not a number`} />
+      <CodeBlock language="javascript" code={`"123" and this is a string, not a number`} />
 
       <h2>Nil</h2>
 
@@ -51,7 +51,7 @@ export default function DataTypes() {
       actually need a value that represents nothing, since null pointer issues tend
       to cause all types of headaches, but that's a separate story</p>
 
-     <CodeBlock code={`Nil is our built in data type of choice for that`} />
+     <CodeBlock language="javascript" code={`Nil is our built in data type of choice for that`} />
 
      <p>
       Okay, okay we are done with basic data types, as I said they are just boring
