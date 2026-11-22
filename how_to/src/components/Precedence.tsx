@@ -1,4 +1,4 @@
-const ACCENT = '#e5484d';
+const ACCENT = '#a848e5';
 const LEVELS = ['Equality', 'Comparison', 'Addition', 'Multiplication', 'Unary'];
 const TOP = 60;
 const ROW_H = 44;
