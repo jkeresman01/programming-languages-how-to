@@ -185,20 +185,26 @@ postfix: a b op`}/>
         Consider for example following <code>Fortran</code> code:
         </p>
 
-       <CodeBlock language="awk" code={`a = b + c d = c + e + b`} />
+       <CodeBlock language="awk" 
+       code={`a = b + c 
+d = c + e + b`} />
 
         <p>
         Some compilers will rearrange this as:
         </p>
 
-       <CodeBlock language="awk" code={`a = b + c d = b + c + e`} />
+       <CodeBlock language="awk" 
+       code={`a = b + c 
+d = b + c + e`} />
 
         <p>
         They can than recognize the <i>common subexpressions</i> in the first and second 
         statements to generate code equivalent to: 
         </p>
 
-        <CodeBlock language="awk" code={`a = b + c d = a + e`}/>
+        <CodeBlock language="awk" 
+        code={`a = b + c 
+d = a + e`}/>
 
       </Callout>
 

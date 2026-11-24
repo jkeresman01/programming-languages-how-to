@@ -6,35 +6,27 @@ import PrecedenceDiagram from "../../components/Precedence";
 export default function Jargon() {
   return (
     <>
-      <h1>Jargon, trees and some boring stuff</h1>
+      <h1>Introduction</h1>
 
-      <p>Was thinking about writing about parser stage for quite some time, but some
-      jargon is important before we move to that, we will of course be led by love,
-      talk about "Statements" of intent and "Expressions" of feelings, there is also
-      this thing called "ExpressionStatement" which is quite fun, but also nature,
-      trees, grammar, how do we represent the code and <strong>wars</strong> among
-      some other boring stuff.</p>
+    <p>Science is the pursuit of discovering things we don't know, while engineering
+     tends to be applying known techniques and methods to unknown and known problems. In
+     practice, this sometimes means doing the crappy thing first: using a naive approach,
+     getting it to work, listening to the feedback, and iterating on it. As we do this,
+     we gradually improve the solution while expanding our toolbox of techniques,
+     ways of thinking, and understanding of the problem.</p>
 
-     <Callout type="tip">
-        <p><strong>They leave me no choice in this wars</strong></p>
+    <p>The trick is finding the right balance between understanding and productivity. If
+    you don't dig deeper into your understanding when you need to, you'll make wrong
+    decisions. But if you always dig deeper, you'll never get anything done.</p>
 
-        <iframe
-            width="100%"
-            height="315"
-            src="https://www.youtube.com/embed/3vI_7os2V_o?start=78&end=95"
-            title="They leave me no choice in this wars"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
-        </iframe>
-      </Callout>
+    <p>The goal of this chapter to present techincs, concepts and methods, at least
+      those fundamental ones, that we need to understand before we can create our own
+      programming language,we will of course be led by love, talk about "Statements"
+      of intent and "Expressions" of feelings, there is also this thing called
+      "ExpressionStatement" which is quite fun, but also nature, trees, parsing
+      techniques, grammar, how do we represent the code and some other boring stuff.</p>
 
-     <h2>What is this shit all about?</h2>
-
-     <p>....</p>
-
-     <h2>Context free grammars</h2>
+    <h2>Context free grammars</h2>
 
      <p>A context-free grammar is a set of rules that defines how to generate or
      analyze a set of sentences.</p>
@@ -192,7 +184,48 @@ function gen(sym, i, j) {                             # Print random phrase deri
             ( expr )
 `}/>
 
-    <p>Expression in standard infix notation 1 + 2 * 3 can be parsed like this:</p>
+    <p>This grammar captures not only the form of arithmetic expressions, but also the
+    precedence and associativity of the operators, for example <code>expr</code> is sum
+    or difference of <code>term</code>, but <i>term</i> is is made of <i>factors</i>,
+    which assures that multiplication and division are dealt with befomre addition
+    and subtraction. </p>
+
+    <p>
+     To make an infix evaluator we need a parser, the process of parsing is opposite
+     to the one that we have seen in sentence generator, but before we move to
+     implementation let's introduce some definitions which might put me in great
+     jeopardy for, you know, well being boring.
+    </p>
+
+      <h3>Boring definitions</h3>
+
+      <h4>Precedence</h4>
+
+      <p>
+        Precedence determines which operator is evaluated first in an expression
+        containing a mixture of different operators, or in other words, we evaluate
+        this shit '*' and '/' before '+' and '-'
+      </p>
+
+      <h4>Associativity</h4>
+
+      <p>
+        Associativity specifies whether sequences of operators with equal precedence
+        group to the left or right, or in other words when an operator is
+        left-associative this shit:
+      </p>
+
+      <CodeBlock code={`5 - 3 + 1`} />
+
+      <p>
+        is equal to this shit, or in other words we group to left:
+      </p>
+
+      <CodeBlock code={`(5 - 3) + 1`} />
+
+
+    <p>Great now that we understand boring math definitions lets see how can we parse
+    expressions in standard infix notation on this example: 1 + 2 * 3 </p>
 
     <ParseTree/>
 
@@ -258,39 +291,6 @@ function gen(sym, i, j) {                             # Print random phrase deri
         also gives us left associativity for free.
      </p>
 
-     <p>
-       But please, just listen to this sentence: "The loop also gives us left
-       associativity for free.", what the fuck does this even mean, so let's introduce
-       some definitions which might put me in great jeopardy for, you know, well
-       being boring.
-     </p>
-
-      <h3>Boring definitions</h3>
-
-      <h4>Precedence</h4>
-
-      <p>
-        Precedence determines which operator is evaluated first in an expression
-        containing a mixture of different operators, or in other words, we evaluate
-        this shit '*' and '/' before '+' and '-'
-      </p>
-
-      <h4>Associativity</h4>
-
-      <p>
-        Associativity specifies whether sequences of operators with equal precedence
-        group to the left or right, or in other words when an operator is
-        left-associative this shit:
-      </p>
-
-      <CodeBlock code={`5 - 3 + 1`} />
-
-      <p>
-        is equal to this shit, or in other words we group to left:
-      </p>
-
-      <CodeBlock code={`(5 - 3) + 1`} />
-
       <CodeBlock
         language="awk"
         code={`function term(e) {
@@ -325,14 +325,74 @@ function gen(sym, i, j) {                             # Print random phrase deri
     }
 }`}
     />
-
+      
       <p>
-        The bottom of the grammar. If the current token looks like a number we return
-        it and move on. If it's an opening parenthesis we skip it, call
-        <code>expr()</code> again to parse everything inside, and then expect a
-        closing parenthesis. That call back to <code>expr</code> is the recursion that
-        lets parentheses nest as deep as you like, and it's what takes us from the
-        bottom of the grammar back up to the top.
+        A string matching pattern <code>/r/</code> matches the current input line if
+        the line contains at least one substring matched by <code>r</code>.
+      </p>
+
+       <table className="doc-table">
+        <thead>
+          <tr>
+            <th>Pattern</th>
+            <th>Explanation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+                <code>/^[0-9]+$/</code>
+            </td>
+            <td>
+              Matches any input line that consists of one or more decimal digits 
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <code>/^[0-9][0-9][0-9]$/</code>
+            </td>
+            <td>
+              Matches exactly three digits
+            </td>
+          </tr>
+          <tr>
+            <td>
+               <code>/^[0-9]{3}$/</code>
+            </td>
+            <td>
+              Also exactly three digits
+            </td>
+          </tr>
+          <tr>
+            <td>
+               <code>/^(\+|-)?[0-9]+\.?[0-9]*$/</code>
+            </td>
+            <td>
+              A decimal number with an optional sign and optional fraction
+            </td>
+          </tr>
+          <tr>
+            <td>
+               <code>/^[+|-]?[0-9]+[.]?[0-9]*$/</code>
+            </td>
+            <td>
+              also, a decimal number with an optional sign and optional fraction
+            </td>
+          </tr>
+
+         </tbody>
+      </table>
+
+      <p>Any regular <i>expression</i> enclosed in slashes can be used as the right-hand
+      operand of a matching operator.</p>
+
+      <CodeBlock language="awk" code={`$2 !~ /^[0-9]+$/`} />
+
+      <p>Or in plain english, if the current token looks like a number we return it and
+      move on. If it's an opening parenthesis skip it, call <code>expr()</code> again to
+      parse everything inside, and then expect a closing parenthesis. That call back to
+      <code>expr</code> is the recursion that lets parentheses nest as deep as you
+      like, and it's what takes us from the bottom of the grammar back up to the top.
       </p>
 
     </>
