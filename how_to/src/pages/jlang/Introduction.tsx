@@ -25,9 +25,9 @@ export default function Introduction() {
         by a colon and the type, then an optional initializer.
       </p>
 
-      <CodeBlock code={`var count: i32 = 42;`} />
-      <CodeBlock code={`var name: char* = "jlang";`} />
-      <CodeBlock code={`var isReady: bool = true;`} />
+      <CodeBlock language="jlang" code={`var count: i32 = 42;`} />
+      <CodeBlock language="jlang" code={`var name: char* = "jlang";`} />
+      <CodeBlock language="jlang" code={`var isReady: bool = true;`} />
 
       <h2>
         Immutable variables with <code>val</code>
@@ -41,6 +41,7 @@ export default function Introduction() {
       </p>
 
       <CodeBlock
+        language="jlang"
         code={`val pi: f64 = 3.14159;
 val maxRetries := 3;
 var counter: i32 = 0;
@@ -48,11 +49,6 @@ counter = counter + 1;  // OK
 // pi = 2.71;           // ERROR: Cannot assign to immutable variable 'pi'
 // maxRetries++;        // ERROR: Cannot modify immutable variable 'maxRetries'`}
       />
-
-      <Callout type="note">
-        <code>val</code> was chosen over <code>const</code> to pair naturally
-        with <code>var</code>. This follows Kotlin and Scala convention.
-      </Callout>
 
       <h2>Unused variables are compile-time errors</h2>
 
@@ -63,6 +59,7 @@ counter = counter + 1;  // OK
       </p>
 
       <CodeBlock
+        language="jlang"
         code={`fn main() -> i32 {
     var x: i32 = 10;
     var y: i32 = 20;  // ERROR: unused variable 'y'
@@ -79,6 +76,7 @@ counter = counter + 1;  // OK
       </p>
 
       <CodeBlock
+        language="jlang"
         code={`// This is a single-line comment
 
 fn main() -> i32 {
@@ -97,6 +95,7 @@ fn main() -> i32 {
       </p>
 
       <CodeBlock
+        language="jlang"
         code={`/* This is a
    multi-line
    block comment */
@@ -118,6 +117,7 @@ fn main() -> i32 {
       </p>
 
       <CodeBlock
+        language="jlang"
         code={`fn main() -> i32 {
     var x: i32 = 10;
     var y: i32 = 20;
@@ -140,6 +140,7 @@ fn main() -> i32 {
       </p>
 
       <CodeBlock
+        language="jlang"
         code={`if (x > 0 && y > 0) {
     printf("Both positive");
 }
@@ -161,6 +162,7 @@ if (!isReady) {
       </p>
 
       <CodeBlock
+        language="jlang"
         code={`var x: i32 = 5;
 
 x++;    // postfix: x becomes 6
@@ -177,6 +179,7 @@ x--;    // postfix: x becomes 6
       </p>
 
       <CodeBlock
+        language="jlang"
         code={`var a: i32 = 0b1100;  // 12
 var b: i32 = 0b1010;  // 10
 
@@ -197,6 +200,7 @@ var rightShift := a >> 1;  // 0b0110 = 6`}
       </p>
 
       <CodeBlock
+        language="jlang"
         code={`var a: i8 = 127;
 var b: i16 = 32767;
 var c: i32 = 42;
@@ -214,7 +218,9 @@ var h: u64 = 18446744073709551615;`}
         <code>\'</code>, <code>\0</code>). Characters are stored as{' '}
         <code>i8</code> values.
       </p>
+
       <CodeBlock
+        language="jlang"
         code={`var letter: char = 'A';
 var newline: char = '\\n';`}
       />
@@ -331,7 +337,9 @@ var newline: char = '\\n';`}
         <code>u16</code>, <code>u32</code>, and <code>u64</code>. Integer
         literals are parsed as <code>i32</code> by default.
       </p>
+
       <CodeBlock
+        language="jlang"
         code={`var a: i8 = 127;
 var b: i16 = 32767;
 var c: i32 = 42;
@@ -357,7 +365,9 @@ var h: u64 = 18446744073709551615;`}
         Single-precision (<code>f32</code>) and double-precision (
         <code>f64</code>) floating-point types are available.
       </p>
+
       <CodeBlock
+        language="jlang"
         code={`var pi: f32 = 3.14;
 var precise: f64 = 3.141592653589793;`}
       />
@@ -426,6 +436,7 @@ var precise: f64 = 3.141592653589793;`}
       </p>
 
       <CodeBlock
+        language="jlang"
         code={`var x: i32 = 5;
 
 x++;    // postfix: x becomes 6
@@ -442,6 +453,7 @@ x--;    // postfix: x becomes 6
       </p>
 
       <CodeBlock
+        language="jlang"
         code={`var a: i32 = 0b1100;  // 12
 var b: i32 = 0b1010;  // 10
 
@@ -458,6 +470,7 @@ var rightShift := a >> 1;  // 0b0110 = 6`}
       <p>All bitwise operators have compound assignment forms:</p>
 
       <CodeBlock
+        language="jlang"
         code={`var flags: i32 = 0;
 
 flags |= 0b0001;   // set bit 0
@@ -479,6 +492,7 @@ flags >>= 1;       // shift all bits right`}
       </p>
 
       <CodeBlock
+        language="jlang"
         code={`if (x == 0) {
     printf("x is zero");
 } else if (x == 10) {
@@ -500,6 +514,7 @@ flags >>= 1;       // shift all bits right`}
       </p>
 
       <CodeBlock
+        language="jlang"
         code={`var i: i32 = 0;
 while (i < 10) {
     printf("i = %d", i);
@@ -515,6 +530,7 @@ while (i < 10) {
       </p>
 
       <CodeBlock
+        language="jlang"
         code={`for (var i: i32 = 0; i < 10; i++) {
     printf("i = %d", i);
 }`}
@@ -532,6 +548,7 @@ while (i < 10) {
       </p>
 
       <CodeBlock
+        language="jlang"
         code={`var x: i32 = 2;
 switch (x) {
     case 1:
@@ -558,6 +575,7 @@ switch (x) {
       </p>
 
       <CodeBlock
+        language="jlang"
         code={`var z: i32 = 3;
 var result: i32 = switch (z) {
     case 1 => 10,
