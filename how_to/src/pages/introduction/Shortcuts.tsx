@@ -1,3 +1,4 @@
+import BitVisualizer from '../../components/BitVisualizer';
 import Callout from '../../components/Callout';
 
 export default function Shortcuts() {
@@ -13,6 +14,12 @@ export default function Shortcuts() {
         terms of simplicity, performance and flexibility, but before we move to that lets
         see how can we create small programming language in less than 100 lines of code.
       </p>
+
+       <BitVisualizer/>
+
+        <p>
+        .....
+        </p>
 
        <Callout type="tip">
           <p>Small programming language: </p>

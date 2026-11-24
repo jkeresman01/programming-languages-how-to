@@ -3,7 +3,6 @@ export default function Introduction() {
     <>
       <h1>Introduction</h1>
 
-
     </>
   );
 }
