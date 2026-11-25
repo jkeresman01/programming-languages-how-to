@@ -8,16 +8,10 @@ export default function Introduction() {
 
       <p>
         We need an actual language for this to make any sense, we'll use one that's
-        simple, small and cute, pretty similar to what "Lox" does, but "Lox" also
-        pretty much tries to achieve what Lua does with its cool only-21-keywords
-        grammar language design and this world already has enough implementations
-        of programming languages such as C, Fortran... so our programming language
-        will be as I said small, cute and simple so that it can be implemented easily,
-        which also gives me as a writer of this some space to talk about philosophy and
-        language design, also implementing already existing one is just boring and dull.
+        simple, so our programming language 
        </p>
 
-      <h1>DataTypes</h1>
+      <h2>DataTypes</h2>
 
       <p>There is nothing too smart about these data types,
          some things are just as they are, we will just follow what "Lox" does in this
@@ -67,12 +61,10 @@ export default function Introduction() {
 
      <CodeBlock language="javascript" code={`Nil is our built in data type of choice for that`} />
 
-     <h1>Statements</h1>
+     <h2>Statements</h2>
 
-      <p>Steve Jobs said that people who are crazy enough to think that they can change
-      the world are the ones who do, that was a statement and a statement's job is to
-      change the world in some sense, usually by modifying some state, reading input
-      or producing output.</p>
+      <p>Statement's job is to change the world in some sense, usually by modifying
+      some state, reading input or producing output.</p>
 
       <p>Okay, okay it will all make sense after some examples as I've said statements
       cause effects, they don't evaluate to a value, you've already seen at least one

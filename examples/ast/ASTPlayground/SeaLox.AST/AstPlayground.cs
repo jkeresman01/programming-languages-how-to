@@ -4,8 +4,8 @@ internal static class SeaLox
 {
     private static void Main(String[] args) 
     {
-        var num1 = new Expr.Literal { Value = 123 };
-        var num2 = new Expr.Literal { Value = 23 };
+        var num1 = new Expr.Literal { Value = 2 };
+        var num2 = new Expr.Literal { Value = 3 };
 
         var op = new Token 
         {
@@ -24,38 +24,18 @@ internal static class SeaLox
 
         var astPrinter = new AstPrinter();
 
-        Console.WriteLine("Binary expression: ");
-        Console.WriteLine(astPrinter.Print(binaryExpr));
-        Console.WriteLine("Unary expression: ");
-
-        var opMinus = new Token 
+        var tree = new Expr.Binary
         {
-            TokenType = TokenType.Minus,
-            Lexeme = "-",
-            Literal = null,
-            Line = 1
+            Left = new Expr.Literal { Value = 1.0 },
+            Operator = new Token { TokenType = TokenType.Plus, Lexeme = "+", Line = 1 },
+            Right = new Expr.Binary
+            {
+                Left = new Expr.Literal { Value = 2.0 },
+                Operator = new Token { TokenType = TokenType.Star, Lexeme = "*", Line = 1 },
+                Right = new Expr.Literal { Value = 3.0 }
+            }
         };
 
-        var rndNum = new Expr.Literal { Value = 123 };
-
-        var unaryExpr = new Expr.Unary 
-        {
-            Operator = opMinus,
-            Right = rndNum
-        };
-
-        Console.WriteLine(astPrinter.Print(unaryExpr));
-
-        var grouping = new Expr.Grouping { Expression = binaryExpr };
-        var binExpr = new Expr.Binary 
-        { 
-            Left = binaryExpr,
-            Operator = op,
-            Right = grouping
-        };
-
-        Console.WriteLine("Grouping:");
-        Console.WriteLine(astPrinter.Print(binExpr));
+        Console.WriteLine(astPrinter.Print(tree));
     }
-
 }

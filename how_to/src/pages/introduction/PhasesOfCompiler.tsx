@@ -1,5 +1,8 @@
 import Callout from '../../components/Callout';
 import CodeBlock from '../../components/CodeBlock';
+import BinaryExprTree from '../../components/BinaryExpressionTree';
+import SyntaxTree from '../../components/SyntaxTree';
+import NestedBinaryExprTree from '../../components/NestedBinaryExpression';
 
 export default function PhasesOfCompiler() {
   return (
@@ -144,8 +147,6 @@ diana                        -> identifier
           style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
         </iframe>
 
-        <p><strong>Takeaway: </strong>the scanner turns a stream of characters into a
-        stream of tokens.</p>
       </Callout>
 
       <h3>Parsing</h3>
@@ -153,24 +154,215 @@ diana                        -> identifier
       <p>
         The parser takes the flat list of tokens and gives it structure. It builds a
         tree out of them, usually called a syntax tree, where each node is a piece of
-        the program and its children are the pieces it's made of. Take
-        <code> 1 + 2 * 3</code>. A flat list of tokens doesn't say whether to add or
+        the program and its children are the pieces it's made of. Take{' '}
+        <code>1 + 2 * 3</code>. A flat list of tokens doesn't say whether to add or
         multiply first, but the tree does:
       </p>
 
-      <CodeBlock
-        code={`
-    +
-   / \\
-  1   *
-     / \\
-    2   3`}
-      />
+      <SyntaxTree />
 
       <p>
         The multiplication sits lower in the tree, so it's evaluated first, which is
         precedence showing up as shape.
       </p>
+
+      <p>
+        Or said a bit differently, parsing organizes the tokens received from the
+        scanner into a parse tree that represents higher level constructs
+        (statements, expressions, subroutines and so on) in terms of their
+        constituents. Each construct is a node in the tree and its constituents are
+        its children. The root of the tree is simply a program, and the leaves, from
+        left to right, are the tokens received from the scanner. Taken as a whole,
+        the tree shows how the tokens fit together to make a valid program.
+      </p>
+
+      <h4>The abstract syntax tree</h4>
+
+      <p>
+        The AST for a program captures its behavior in such a way that it is easy for
+        later stages of the compiler (e.g. code generation) to interpret. We
+        basically want one object for each construct in the language, and the AST
+        should closely model the language.
+      </p>
+
+      <h4>Defining the classes</h4>
+
+      <p>
+        To build that tree we need classes to represent it. First the tokens: a
+        token remembers what kind it is, the text it came from, its value if it has
+        one, and the line it was found on.
+      </p>
+
+      <CodeBlock
+        language="csharp"
+        code={`public enum TokenType
+{
+    // single-character tokens
+    Plus, Minus, Star, Slash, LeftParen, RightParen,
+
+    // literals
+    Number, String, Identifier,
+
+    Eof
+}
+
+public class Token
+{
+    public required TokenType TokenType { get; set; }
+    public required string Lexeme { get; set; }   // the raw text, e.g. "+"
+    public object? Literal { get; set; }          // the value of a literal, e.g. 2.0
+    public required int Line { get; set; }        // where it was found
+}`}
+      />
+
+      <p>
+        Then the tree itself. We want one class per kind of expression, all sharing
+        a common base class, <code>Expr</code>, so a node can hold "any expression"
+        as a child. For now we need two kinds: a <code>Literal</code>, which holds a
+        value, and a <code>Binary</code>, which has two sub-expressions and an
+        operator between them.
+      </p>
+
+      <CodeBlock
+        language="csharp"
+        code={`public abstract class Expr
+{
+    public class Literal : Expr
+    {
+        public object? Value { get; set; }
+    }
+
+    public class Binary : Expr
+    {
+        public required Expr Left { get; set; }
+        public required Token Operator { get; set; }
+        public required Expr Right { get; set; }
+    }
+}`}
+      />
+
+      <p>
+        Notice that <code>Left</code> and <code>Right</code> are of type{' '}
+        <code>Expr</code>, not <code>Literal</code>. That is what makes the tree
+        recursive: the child of a binary expression can be another binary
+        expression.
+      </p>
+
+      <p>
+        With those classes, the tree for <code>2 + 3</code> can be built by hand like
+        this:
+      </p>
+
+      <CodeBlock
+        language="csharp"
+        code={`var num1 = new Expr.Literal { Value = 2.0 };
+var num2 = new Expr.Literal { Value = 3.0 };
+
+var op = new Token
+{
+    TokenType = TokenType.Plus,
+    Lexeme = "+",
+    Literal = null,
+    Line = 1
+};
+
+var binaryExpr = new Expr.Binary
+{
+    Left = num1,
+    Operator = op,
+    Right = num2
+};`}
+      />
+
+      <h4>Parser basics</h4>
+
+      <p>
+        Writing trees by hand is only for illustration. The parser's job is to
+        produce exactly this structure from the token list, and we'll write it in
+        the Sealox chapter, where the class list grows to include unary
+        expressions, grouping with parentheses and variables.
+      </p>
+
+      <p>
+        The basic idea of parsing is that we want to take something like{' '}
+        <code>2 + 3</code>, which the scanner hands over as three tokens (a number
+        token <code>2</code>, a plus token and a number token <code>3</code>), and
+        turn it into an AST. For this expression the tree is one binary node with two
+        literals and an operator:
+      </p>
+
+      <BinaryExprTree />
+
+       <p>
+        And because a <code>Binary</code> can contain another <code>Binary</code>,
+        the tree for <code>1 + 2 * 3</code> from the top of this section is just
+        nesting:
+      </p>
+
+      <CodeBlock
+        language="csharp"
+        code={`var tree = new Expr.Binary
+{
+    Left = new Expr.Literal { Value = 1.0 },
+    Operator = new Token { TokenType = TokenType.Plus, Lexeme = "+", Line = 1 },
+    Right = new Expr.Binary
+    {
+        Left = new Expr.Literal { Value = 2.0 },
+        Operator = new Token { TokenType = TokenType.Star, Lexeme = "*", Line = 1 },
+        Right = new Expr.Literal { Value = 3.0 }
+    }
+};`}/>
+
+     <NestedBinaryExprTree/>
+
+       <p>The structure of the tree relies on a set of muttualy recursive rules known
+       as <i>context-free-grammar</i>. Each rule has as arrow sign with a construct
+       name on the left and a possible expession on the right. In <code>C</code>
+       for example and most C-like languages, a <code>while</code> loop consist of
+       the keyword <code>while</code> followed by a parenthesized Boolean expression
+       and a statement.</p>
+
+
+      <CodeBlock language="awk" code ={`iteration-statement -> while (expression) statement`}/>
+
+      <p>The statement, in turn is often a list enclosed in braces: </p>
+ 
+      <CodeBlock language="awk" code ={`
+statement -> compound-statement 
+compound-statement ->  { block-item-list-opt }`}/>
+
+     <p>where: </p>
+
+     <CodeBlock language="awk" code ={`block-item-list-opt -> block-item-list`}/>
+
+     <p>or</p>
+
+     <CodeBlock language="awk" code={`block-item-list-opt -> ε`} />
+
+     <p>and</p>
+
+      <CodeBlock language="awk" code ={`
+block-item-list-opt -> block-item
+block-item-list-opt -> block-item-list block-item
+block-item -> declaration
+block-item -> statement`}/>
+
+    <p>Here <code>ε</code> means the empty string; it indicates that
+    <code>block-item-list-opt</code> can simply be deleted.</p>
+
+    <p>Many more grammar rules are ofcouse needed to explain the full structure of
+    a program</p>
+
+    <p>
+     In the process of <code>scanning</code> and <code>parsing</code> the compiler
+     or interpreter checks that all of the programs tokens are well formed and
+     that sequences of tokens conform to the <code>syntax</code> defined by the
+     <i>context-free-grammar</i>
+    </p>
+
+    <p>Or in plain english: any malformed token (eg. 123milica in C) should cause
+    scanner to produce and error, any syntacly invalid token sequnce should lead to
+    an error message reported from the parser. (eg. A = X Y Z in C).</p>
 
       <h3>Static analysis</h3>
 
@@ -185,10 +377,11 @@ diana                        -> identifier
       <h2>Middle end</h2>
 
       <p>
-        We now understand what the poet tried to say, so we can rephrase it while
-        keeping the same meaning, sneaking in some optimizations along the way.
+        We now understand what the poet tried to say, we can rephrase it bit while
+        keeping the same <strong>semantics</strong>, while sneaking in some optimizations
+        along the way.
       </p>
-
+      
       <p>
         Optimization is a weird and complex topic of its own, most of it happens on the
         intermediate representation, though not all, and one can spend decades on it.
