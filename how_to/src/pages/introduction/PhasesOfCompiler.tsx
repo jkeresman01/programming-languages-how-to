@@ -10,16 +10,21 @@ export default function PhasesOfCompiler() {
       <h1>Phases of a compiler/interpreter</h1>
 
       <p>
-        Now that we understand what we're building, let's see which phases we need to
-        go through, dummified a lot of course. The main question is:
-        <i><strong> "How do we get from a high level language like Sealox to a series
-        of instructions that a CPU can actually execute?"</strong></i>
+        Now that we understand what we're building, let's see which phases we
+        need to go through, dummified a lot of course. The main question is:
+        <i>
+          <strong>
+            {' '}
+            "How do we get from a high level language like Sealox to a series of
+            instructions that a CPU can actually execute?"
+          </strong>
+        </i>
       </p>
 
       <Callout type="tip">
         <p>
-          The phases are roughly three: <strong>front end</strong>, <strong>middle
-          end</strong> and <strong>back end</strong>.
+          The phases are roughly three: <strong>front end</strong>,{' '}
+          <strong>middle end</strong> and <strong>back end</strong>.
         </p>
 
         <iframe
@@ -30,33 +35,35 @@ export default function PhasesOfCompiler() {
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
-        </iframe>
+          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}
+        ></iframe>
       </Callout>
 
       <p>
-        So just listen, she was mindblowing, smoking hot, and beauty is subjective
-        btw, but the phases are three. The <strong>front end</strong> is usuallyPhas
-        specific to the source language: here we figure out what the poet was trying
-        to say. In the <strong>middle end</strong>, now that we understand the poet,
-        we can rephrase a bit while keeping the same meaning, which is where
-        optimizations live: constant folding, loop unrolling and so on. Finally the
-        <strong> back end</strong>: everything is optimized, so we generate machine
-        instructions, either bytecode or code for a specific chip (x86, ARM...). We go
-        back from poetry to reality, pure logic and instructions. Of course it's more
-        complex than that, but let's leave it there.
+        So just listen, she was mindblowing, smoking hot, and beauty is
+        subjective btw, but the phases are three. The <strong>front end</strong>{' '}
+        is usually specific to the source language: here we figure out what the
+        poet was trying to say. In the <strong>middle end</strong>, now that we
+        understand the poet, we can rephrase a bit while keeping the same
+        meaning, which is where optimizations live: constant folding, loop
+        unrolling and so on. Finally the
+        <strong> back end</strong>: everything is optimized, so we generate
+        machine instructions, either bytecode or code for a specific chip (x86,
+        ARM...). We go back from poetry to reality, pure logic and instructions.
+        Of course it's more complex than that, but let's leave it there.
       </p>
 
       <Callout type="note">
-        <p><strong>Offtopic: </strong>
-          If your mind isn't blown yet, like mine was, listen to this. The dude in the
-          video drops IR (Intermediate Representation), and ohhhhh boy is it neat. If
-          you want compilers for M languages targeting N architectures, naively you'd
-          need M×N implementations, sounds painful, right? So each front end targets
-          one intermediate representation, and each back end takes that IR and spits
-          out native code. That turns M×N into M+N. It's the reason GCC supports so
-          many languages and chips: every front end goes through an IR, mostly GIMPLE
-          and RTL.
+        <p>
+          <strong>Offtopic: </strong>
+          If your mind isn't blown yet, like mine was, listen to this. The dude
+          in the video drops IR (Intermediate Representation), and ohhhhh boy is
+          it neat. If you want compilers for M languages targeting N
+          architectures, naively you'd need M×N implementations, sounds painful,
+          right? So each front end targets one intermediate representation, and
+          each back end takes that IR and spits out native code. That turns M×N
+          into M+N. It's the reason GCC supports so many languages and chips:
+          every front end goes through an IR, mostly GIMPLE and RTL.
         </p>
 
         <iframe
@@ -67,56 +74,61 @@ export default function PhasesOfCompiler() {
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
-        </iframe>
+          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}
+        ></iframe>
       </Callout>
 
       <Callout type="tip">
-        <p><strong>Fun fact: </strong>
-          Grace Hopper is credited with creating one of the first compilers (the A-0
-          system, early 1950s). She also helped popularize the story of the first
-          "actual bug", a moth found in the Harvard Mark II in 1947, though the
-          operators who found it logged it, and engineers were calling glitches
-          "bugs" long before that.
+        <p>
+          <strong>Fun fact: </strong>
+          Grace Hopper is credited with creating one of the first compilers (the
+          A-0 system, early 1950s). She also helped popularize the story of the
+          first "actual bug", a moth found in the Harvard Mark II in 1947,
+          though the operators who found it logged it, and engineers were
+          calling glitches "bugs" long before that.
         </p>
       </Callout>
 
       <h2>Front end</h2>
 
       <p>
-        Here we also have roughly three stages: scanning (lexing), parsing and static
-        analysis.
+        Here we also have roughly three stages: scanning (lexing), parsing and
+        static analysis.
       </p>
 
       <h3>Scanning</h3>
 
       <p>
-        This stage pretty much boils down to one big dumb switch statement. We take a
-        stream of characters and group them into tokens (words) that make up our
-        language's grammar, ignoring the noise like comments and whitespace.
+        This stage pretty much boils down to one big dumb switch statement. We
+        take a stream of characters and group them into tokens (words) that make
+        up our language's grammar, ignoring the noise like comments and
+        whitespace.
       </p>
 
       <p>
-        You'll hear both "scanning" and "lexing". We'll say scanning, but "lexing" is
-        arguably more correct, it comes from the Greek <i>lexis</i>, meaning "word".
-        That's that, this mystery was quite easy. In practice people use the two terms
-        interchangeably.
+        You'll hear both "scanning" and "lexing". We'll say scanning, but
+        "lexing" is arguably more correct, it comes from the Greek <i>lexis</i>,
+        meaning "word". That's that, this mystery was quite easy. In practice
+        people use the two terms interchangeably.
       </p>
 
       <h4>Concrete example</h4>
 
       <p>
-        The purpose of scanning and parsing, the first two stages, is to recognize the
-        structure of a program without caring about its meaning yet. What the hell
-        does that mean? Let's go through a simple example:
+        The purpose of scanning and parsing, the first two stages, is to
+        recognize the structure of a program without caring about its meaning
+        yet. What the hell does that mean? Let's go through a simple example:
       </p>
 
-      <CodeBlock language="javascript" code={`var diana = "There is no zebra in here"`} />
+      <CodeBlock
+        language="javascript"
+        code={`var diana = "There is no zebra in here"`}
+      />
 
       <p>
-        The scanner reads characters one by one: <code>v</code>, <code>a</code>,
-        <code>r</code>, a space, <code>d</code>, <code>i</code>... and groups them
-        into tokens:
+        The scanner reads characters one by one: <code>v</code>, <code>a</code>,{' '}
+        <code>r</code>, a space, <code>d</code>, <code>i</code>... and groups
+        them into tokens:
       </p>
 
       <CodeBlock
@@ -134,7 +146,9 @@ diana                        -> identifier
       </p>
 
       <Callout type="tip">
-        <p><strong>What is scanning (no BS explanation)</strong></p>
+        <p>
+          <strong>What is scanning (no BS explanation)</strong>
+        </p>
 
         <iframe
           width="100%"
@@ -144,53 +158,53 @@ diana                        -> identifier
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
-        </iframe>
-
+          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}
+        ></iframe>
       </Callout>
 
       <h3>Parsing</h3>
 
       <p>
-        The parser takes the flat list of tokens and gives it structure. It builds a
-        tree out of them, usually called a syntax tree, where each node is a piece of
-        the program and its children are the pieces it's made of. Take{' '}
-        <code>1 + 2 * 3</code>. A flat list of tokens doesn't say whether to add or
-        multiply first, but the tree does:
+        The parser takes the flat list of tokens and gives it structure. It
+        builds a tree out of them, usually called a syntax tree, where each node
+        is a piece of the program and its children are the pieces it's made of.
+        Take <code>1 + 2 * 3</code>. A flat list of tokens doesn't say whether
+        to add or multiply first, but the tree does:
       </p>
 
       <SyntaxTree />
 
       <p>
-        The multiplication sits lower in the tree, so it's evaluated first, which is
-        precedence showing up as shape.
+        The multiplication sits lower in the tree, so it's evaluated first,
+        which is precedence showing up as shape.
       </p>
 
       <p>
-        Or said a bit differently, parsing organizes the tokens received from the
-        scanner into a parse tree that represents higher level constructs
+        Or said a bit differently, parsing organizes the tokens received from
+        the scanner into a parse tree that represents higher level constructs
         (statements, expressions, subroutines and so on) in terms of their
-        constituents. Each construct is a node in the tree and its constituents are
-        its children. The root of the tree is simply a program, and the leaves, from
-        left to right, are the tokens received from the scanner. Taken as a whole,
-        the tree shows how the tokens fit together to make a valid program.
+        constituents. Each construct is a node in the tree and its constituents
+        are its children. The root of the tree is simply a program, and the
+        leaves, from left to right, are the tokens received from the scanner.
+        Taken as a whole, the tree shows how the tokens fit together to make a
+        valid program.
       </p>
 
       <h4>The abstract syntax tree</h4>
 
       <p>
-        The AST for a program captures its behavior in such a way that it is easy for
-        later stages of the compiler (e.g. code generation) to interpret. We
-        basically want one object for each construct in the language, and the AST
-        should closely model the language.
+        The AST for a program captures its behavior in such a way that it is
+        easy for later stages of the compiler (e.g. code generation) to
+        interpret. We basically want one object for each construct in the
+        language, and the AST should closely model the language.
       </p>
 
       <h4>Defining the classes</h4>
 
       <p>
         To build that tree we need classes to represent it. First the tokens: a
-        token remembers what kind it is, the text it came from, its value if it has
-        one, and the line it was found on.
+        token remembers what kind it is, the text it came from, its value if it
+        has one, and the line it was found on.
       </p>
 
       <CodeBlock
@@ -216,11 +230,11 @@ public class Token
       />
 
       <p>
-        Then the tree itself. We want one class per kind of expression, all sharing
-        a common base class, <code>Expr</code>, so a node can hold "any expression"
-        as a child. For now we need two kinds: a <code>Literal</code>, which holds a
-        value, and a <code>Binary</code>, which has two sub-expressions and an
-        operator between them.
+        Then the tree itself. We want one class per kind of expression, all
+        sharing a common base class, <code>Expr</code>, so a node can hold "any
+        expression" as a child. For now we need two kinds: a{' '}
+        <code>Literal</code>, which holds a value, and a <code>Binary</code>,
+        which has two sub-expressions and an operator between them.
       </p>
 
       <CodeBlock
@@ -249,8 +263,8 @@ public class Token
       </p>
 
       <p>
-        With those classes, the tree for <code>2 + 3</code> can be built by hand like
-        this:
+        With those classes, the tree for <code>2 + 3</code> can be built by hand
+        like this:
       </p>
 
       <CodeBlock
@@ -278,25 +292,25 @@ var binaryExpr = new Expr.Binary
 
       <p>
         Writing trees by hand is only for illustration. The parser's job is to
-        produce exactly this structure from the token list, and we'll write it in
-        the Sealox chapter, where the class list grows to include unary
+        produce exactly this structure from the token list, and we'll write it
+        in the Sealox chapter, where the class list grows to include unary
         expressions, grouping with parentheses and variables.
       </p>
 
       <p>
         The basic idea of parsing is that we want to take something like{' '}
-        <code>2 + 3</code>, which the scanner hands over as three tokens (a number
-        token <code>2</code>, a plus token and a number token <code>3</code>), and
-        turn it into an AST. For this expression the tree is one binary node with two
-        literals and an operator:
+        <code>2 + 3</code>, which the scanner hands over as three tokens (a
+        number token <code>2</code>, a plus token and a number token{' '}
+        <code>3</code>), and turn it into an AST. For this expression the tree
+        is one binary node with two literals and an operator:
       </p>
 
       <BinaryExprTree />
 
-       <p>
-        And because a <code>Binary</code> can contain another <code>Binary</code>,
-        the tree for <code>1 + 2 * 3</code> from the top of this section is just
-        nesting:
+      <p>
+        And because a <code>Binary</code> can contain another{' '}
+        <code>Binary</code>, the tree for <code>1 + 2 * 3</code> from the top of
+        this section is just nesting:
       </p>
 
       <CodeBlock
@@ -311,95 +325,121 @@ var binaryExpr = new Expr.Binary
         Operator = new Token { TokenType = TokenType.Star, Lexeme = "*", Line = 1 },
         Right = new Expr.Literal { Value = 3.0 }
     }
-};`}/>
+};`}
+      />
 
-     <NestedBinaryExprTree/>
+      <NestedBinaryExprTree />
 
-       <p>The structure of the tree relies on a set of muttualy recursive rules known
-       as <i>context-free-grammar</i>. Each rule has as arrow sign with a construct
-       name on the left and a possible expession on the right. In <code>C</code>
-       for example and most C-like languages, a <code>while</code> loop consist of
-       the keyword <code>while</code> followed by a parenthesized Boolean expression
-       and a statement.</p>
+      <p>
+        The structure of the tree relies on a set of mutually recursive rules
+        known as a <i>context-free grammar</i>. Each rule has an arrow sign with
+        a construct name on the left and a possible expression on the right. In{' '}
+        <code>C</code>, for example, and most C-like languages, a{' '}
+        <code>while</code> loop consists of the keyword <code>while</code>{' '}
+        followed by a parenthesized Boolean expression and a statement.
+      </p>
 
-
-      <CodeBlock language="awk" code ={`iteration-statement -> while (expression) statement`}/>
+      <CodeBlock
+        language="awk"
+        code={`iteration-statement -> while (expression) statement`}
+      />
 
       <p>The statement, in turn is often a list enclosed in braces: </p>
- 
-      <CodeBlock language="awk" code ={`
+
+      <CodeBlock
+        language="awk"
+        code={`
 statement -> compound-statement 
-compound-statement ->  { block-item-list-opt }`}/>
+compound-statement ->  { block-item-list-opt }`}
+      />
 
-     <p>where: </p>
+      <p>where: </p>
 
-     <CodeBlock language="awk" code ={`block-item-list-opt -> block-item-list`}/>
+      <CodeBlock
+        language="awk"
+        code={`block-item-list-opt -> block-item-list`}
+      />
 
-     <p>or</p>
+      <p>or</p>
 
-     <CodeBlock language="awk" code={`block-item-list-opt -> ε`} />
+      <CodeBlock language="awk" code={`block-item-list-opt -> ε`} />
 
-     <p>and</p>
+      <p>and</p>
 
-      <CodeBlock language="awk" code ={`
-block-item-list-opt -> block-item
-block-item-list-opt -> block-item-list block-item
+      <CodeBlock
+        language="awk"
+        code={`
+block-item-list -> block-item
+block-item-list -> block-item-list block-item
 block-item -> declaration
-block-item -> statement`}/>
+block-item -> statement`}
+      />
 
-    <p>Here <code>ε</code> means the empty string; it indicates that
-    <code>block-item-list-opt</code> can simply be deleted.</p>
+      <p>
+        Here <code>ε</code> means the empty string; it indicates that{' '}
+        <code>block-item-list-opt</code> can simply be deleted.
+      </p>
 
-    <p>Many more grammar rules are ofcouse needed to explain the full structure of
-    a program</p>
+      <p>
+        Many more grammar rules are of course needed to explain the full
+        structure of a program.
+      </p>
 
-    <p>
-     In the process of <code>scanning</code> and <code>parsing</code> the compiler
-     or interpreter checks that all of the programs tokens are well formed and
-     that sequences of tokens conform to the <code>syntax</code> defined by the
-     <i>context-free-grammar</i>
-    </p>
+      <p>
+        In the process of <code>scanning</code> and <code>parsing</code> the
+        compiler or interpreter checks that all of the program's tokens are well
+        formed and that sequences of tokens conform to the <code>syntax</code>{' '}
+        defined by the <i>context-free grammar</i>.
+      </p>
 
-    <p>Or in plain english: any malformed token (eg. 123milica in C) should cause
-    scanner to produce and error, any syntacly invalid token sequnce should lead to
-    an error message reported from the parser. (eg. A = X Y Z in C).</p>
+      <p>
+        Or in plain English: any malformed token (e.g. 123milica in C) should
+        cause the scanner to produce an error, and any syntactically invalid
+        token sequence should lead to an error message reported from the parser
+        (e.g. A = X Y Z in C).
+      </p>
 
       <h3>Static analysis</h3>
 
       <p>
-        The first two stages, scanning and parsing, tend to be boring and dull, pretty
-        much the same across all implementations. At this point we know the syntactic
-        structure of the code - things like which expressions are nested in which,
-        but we don't know much more than that. Static analysis is where the individual
-        quirks of each language come into play. This is where we figure out what names
-        refer to (binding) and, in a statically typed language, check that the types
-        line up, all before the program runs.
+        The first two stages, scanning and parsing, tend to be boring and dull,
+        pretty much the same across all implementations. At this point we know
+        the syntactic structure of the code - things like which expressions are
+        nested in which, but we don't know much more than that. Static analysis
+        is where the individual quirks of each language come into play. This is
+        where we figure out what names refer to (binding) and, in a statically
+        typed language, check that the types line up, all before the program
+        runs.
       </p>
 
       <h2>Middle end</h2>
 
       <p>
-        We now understand what the poet tried to say, we can rephrase it a bit while
-        keeping the same <strong>semantics</strong>, while sneaking in some optimizations
-        along the way.
+        Now that we understand what the poet tried to say, we can rephrase it a
+        bit while keeping the same <strong>semantics</strong>, sneaking in some
+        optimizations along the way.
       </p>
 
       <p>
-        Optimization is a weird and complex topic of its own, most of it happens on the
-        intermediate representation, though not all, and one can spend decades on it.
-        It's a huge rabbit hole with a bunch of fancy words: "strength reduction",
-        "scalar replacement of aggregates", "loop invariant code motion", "common
-        subexpression elimination"... Some languages keep it cute and simple,
-        generating relatively unoptimized code and rolling on. Lua tends to do just
-        that.
+        Optimization is a weird and complex topic of its own, most of it happens
+        on the intermediate representation, though not all, and one can spend
+        decades on it. It's a huge rabbit hole with a bunch of fancy words:
+        "strength reduction", "scalar replacement of aggregates", "loop
+        invariant code motion", "common subexpression elimination"... Some
+        languages keep it cute and simple, generating relatively unoptimized
+        code and rolling on. Lua tends to do just that.
       </p>
 
       <Callout type="note">
-        <p><strong>Constant folding</strong></p>
+        <p>
+          <strong>Constant folding</strong>
+        </p>
 
-        <p>A simple example of this is constant folding, if some expressions always
-           evaluate to the same result, we can do the evaluation at the compile time.
-         </p>
+        <p>
+          A simple example of this is constant folding: if some expressions
+          always evaluate to the same result, we can do the evaluation at
+          compile time.
+        </p>
 
         <iframe
           width="100%"
@@ -409,21 +449,24 @@ block-item -> statement`}/>
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
-        </iframe>
+          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}
+        ></iframe>
       </Callout>
 
-      <p>Seriously people can spend their entire careers only thinking about
-      optimizations and performance, it can become an obsession of its own, we will
-      just give a small overview of what can be done: </p>
-
+      <p>
+        Seriously, people can spend their entire careers only thinking about
+        optimizations and performance, it can become an obsession of its own, we
+        will just give a small overview of what can be done:{' '}
+      </p>
 
       <Callout type="note">
-        <p><strong>What compilers can and cannot do</strong></p>
+        <p>
+          <strong>What compilers can and cannot do</strong>
+        </p>
 
         <p>
-          A short summary in terms of the Bentley rules for optimizing work, and some
-          more:
+          A short summary in terms of the Bentley rules for optimizing work, and
+          some more:
         </p>
 
         <iframe
@@ -434,41 +477,48 @@ block-item -> statement`}/>
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}>
-        </iframe>
+          style={{ borderRadius: '8px', border: '1px solid var(--border)' }}
+        ></iframe>
       </Callout>
 
       <h2>Back end</h2>
 
       <p>
-        Finally we're at the back end, and it's time to go from poetry to reality:
-        from the user's source code to more primitive, assembly-like instructions the
-        machine can understand. Here we pick a target. We can generate bytecode for a
-        virtual machine, which is portable but needs that VM to run, or native machine
-        code for a specific architecture, which is fast but tied to that hardware.
-        Phase 5 takes the native route.
+        Finally we're at the back end, and it's time to go from poetry to
+        reality: from the user's source code to more primitive, assembly-like
+        instructions the machine can understand. Here we pick a target. We can
+        generate bytecode for a virtual machine, which is portable but needs
+        that VM to run, or native machine code for a specific architecture,
+        which is fast but tied to that hardware. Phase 5 takes the native route.
       </p>
-
 
       <h2>Which phases do our projects use?</h2>
 
       <p>
-        Not every implementation uses all three phases, and that's exactly why we
-        build five of them:
+        Not every implementation uses all three phases, and that's exactly why
+        we build five of them:
       </p>
 
       <ul>
-        <li><strong>Phases 1 and 2 (Jlox, Sealox):</strong> front end only. We scan,
-        parse and analyze, then execute by walking the tree directly. No middle end,
-        no back end.</li>
-        <li><strong>Phase 3 (functional Lox):</strong> same front end, different style
-        of building it.</li>
-        <li><strong>Phase 4 (Luapp):</strong> front end, then instead of machine code
-        we generate Lua source. Lua's own implementation does the rest.</li>
-        <li><strong>Phase 5 (Jlang):</strong> the whole pipeline. We build the front
-        end and emit LLVM IR, and LLVM handles the middle end and back end.</li>
+        <li>
+          <strong>Phases 1 and 2 (Jlox, Sealox):</strong> front end only. We
+          scan, parse and analyze, then execute by walking the tree directly. No
+          middle end, no back end.
+        </li>
+        <li>
+          <strong>Phase 3 (functional Lox):</strong> same front end, different
+          style of building it.
+        </li>
+        <li>
+          <strong>Phase 4 (Luapp):</strong> front end, then instead of machine
+          code we generate Lua source. Lua's own implementation does the rest.
+        </li>
+        <li>
+          <strong>Phase 5 (Jlang):</strong> the whole pipeline. We build the
+          front end and emit LLVM IR, and LLVM handles the middle end and back
+          end.
+        </li>
       </ul>
-
     </>
   );
 }

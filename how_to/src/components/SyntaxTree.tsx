@@ -1,4 +1,10 @@
-type TreeNode = { id: string; label: string; x: number; y: number; operator?: boolean };
+type TreeNode = {
+  id: string;
+  label: string;
+  x: number;
+  y: number;
+  operator?: boolean;
+};
 
 const ACCENT = '#a848e5';
 const R = 20;
@@ -28,7 +34,12 @@ export default function SyntaxTree() {
         viewBox="0 0 360 240"
         role="img"
         aria-label="Syntax tree for 1 + 2 * 3: the plus node has children 1 and a multiplication node, which has children 2 and 3"
-        style={{ width: '100%', maxWidth: 360, display: 'block', margin: '0 auto' }}
+        style={{
+          width: '100%',
+          maxWidth: 360,
+          display: 'block',
+          margin: '0 auto',
+        }}
       >
         {edges.map(([from, to]) => {
           const a = byId[from];

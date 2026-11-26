@@ -1,4 +1,10 @@
-type TreeNode = { id: string; label: string; x: number; y: number; terminal?: boolean };
+type TreeNode = {
+  id: string;
+  label: string;
+  x: number;
+  y: number;
+  terminal?: boolean;
+};
 
 // Parse tree for: 1 + 2 * 3
 // Why not, why not
@@ -30,11 +36,21 @@ const nodes: TreeNode[] = [
 ];
 
 const edges: [string, string][] = [
-  ['E0', 'E1'], ['E0', 'P'], ['E0', 'T1'],
-  ['E1', 'T0'], ['T0', 'F0'], ['F0', 'N0'], ['N0', 'L1'],
-  ['T1', 'T2'], ['T1', 'S'], ['T1', 'F2'],
-  ['T2', 'F1'], ['F1', 'N1'], ['N1', 'L2'],
-  ['F2', 'N2'], ['N2', 'L3'],
+  ['E0', 'E1'],
+  ['E0', 'P'],
+  ['E0', 'T1'],
+  ['E1', 'T0'],
+  ['T0', 'F0'],
+  ['F0', 'N0'],
+  ['N0', 'L1'],
+  ['T1', 'T2'],
+  ['T1', 'S'],
+  ['T1', 'F2'],
+  ['T2', 'F1'],
+  ['F1', 'N1'],
+  ['N1', 'L2'],
+  ['F2', 'N2'],
+  ['N2', 'L3'],
 ];
 
 const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
@@ -46,7 +62,12 @@ export default function ParseTree() {
         viewBox="0 0 420 315"
         role="img"
         aria-label="Parse tree for the expression 1 + 2 * 3"
-        style={{ width: '100%', maxWidth: 460, display: 'block', margin: '0 auto' }}
+        style={{
+          width: '100%',
+          maxWidth: 460,
+          display: 'block',
+          margin: '0 auto',
+        }}
       >
         {edges.map(([from, to]) => {
           const a = byId[from];

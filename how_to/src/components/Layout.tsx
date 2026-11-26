@@ -77,9 +77,7 @@ export default function Layout() {
               </svg>
             )}
           </button>
-          <span className="header-title">
-            Programming languages, how to?
-          </span>
+          <span className="header-title">Programming languages, how to?</span>
           <div className="header-spacer" />
           <ThemeToggle />
         </header>

@@ -16,13 +16,55 @@ type Box = {
 const boxes: Box[] = [
   { id: 'root', cx: 260, y: 20, w: 124, h: 36, title: 'Expr.Binary' },
 
-  { id: 'one', cx: 70, y: 110, w: 112, h: 52, title: 'Expr.Literal', detail: 'Value = 1' },
-  { id: 'plus', cx: 210, y: 110, w: 112, h: 52, title: 'Token', detail: 'Plus "+"', token: true },
+  {
+    id: 'one',
+    cx: 70,
+    y: 110,
+    w: 112,
+    h: 52,
+    title: 'Expr.Literal',
+    detail: 'Value = 1',
+  },
+  {
+    id: 'plus',
+    cx: 210,
+    y: 110,
+    w: 112,
+    h: 52,
+    title: 'Token',
+    detail: 'Plus "+"',
+    token: true,
+  },
   { id: 'inner', cx: 450, y: 110, w: 124, h: 36, title: 'Expr.Binary' },
 
-  { id: 'two', cx: 330, y: 210, w: 112, h: 52, title: 'Expr.Literal', detail: 'Value = 2' },
-  { id: 'star', cx: 450, y: 210, w: 112, h: 52, title: 'Token', detail: 'Star "*"', token: true },
-  { id: 'three', cx: 570, y: 210, w: 112, h: 52, title: 'Expr.Literal', detail: 'Value = 3' },
+  {
+    id: 'two',
+    cx: 330,
+    y: 210,
+    w: 112,
+    h: 52,
+    title: 'Expr.Literal',
+    detail: 'Value = 2',
+  },
+  {
+    id: 'star',
+    cx: 450,
+    y: 210,
+    w: 112,
+    h: 52,
+    title: 'Token',
+    detail: 'Star "*"',
+    token: true,
+  },
+  {
+    id: 'three',
+    cx: 570,
+    y: 210,
+    w: 112,
+    h: 52,
+    title: 'Expr.Literal',
+    detail: 'Value = 3',
+  },
 ];
 
 type Side = 'left' | 'center' | 'right';
@@ -88,7 +130,13 @@ export default function NestedBinaryExprTree() {
         viewBox="0 0 640 280"
         role="img"
         aria-label="Syntax tree for 1 + 2 * 3: a Binary expression whose left side is Literal 1, whose operator is a plus token, and whose right side is another Binary expression with Literal 2, a star token and Literal 3"
-        style={{ width: '100%', minWidth: 520, maxWidth: 640, display: 'block', margin: '0 auto' }}
+        style={{
+          width: '100%',
+          minWidth: 520,
+          maxWidth: 640,
+          display: 'block',
+          margin: '0 auto',
+        }}
       >
         {edges.map(([from, to]) => {
           const a = byId[from];

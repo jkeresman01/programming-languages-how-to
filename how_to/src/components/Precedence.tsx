@@ -1,5 +1,11 @@
 const ACCENT = '#a848e5';
-const LEVELS = ['Equality', 'Comparison', 'Addition', 'Multiplication', 'Unary'];
+const LEVELS = [
+  'Equality',
+  'Comparison',
+  'Addition',
+  'Multiplication',
+  'Unary',
+];
 const TOP = 60;
 const ROW_H = 44;
 
@@ -12,7 +18,12 @@ export default function PrecedenceDiagram() {
         viewBox="0 0 660 330"
         role="img"
         aria-label="Grammar levels from top to bottom: equality, comparison, addition, multiplication, unary. Precedence goes from low at the top to high at the bottom."
-        style={{ width: '100%', maxWidth: 660, display: 'block', margin: '0 auto' }}
+        style={{
+          width: '100%',
+          maxWidth: 660,
+          display: 'block',
+          margin: '0 auto',
+        }}
       >
         <defs>
           <marker
@@ -29,16 +40,64 @@ export default function PrecedenceDiagram() {
         </defs>
 
         {/* Left: GRAMMAR axis */}
-        <text x={90} y={38} textAnchor="middle" fontSize={16} fontFamily={font} fill="currentColor">
+        <text
+          x={90}
+          y={38}
+          textAnchor="middle"
+          fontSize={16}
+          fontFamily={font}
+          fill="currentColor"
+        >
           TOP
         </text>
-        <line x1={90} y1={150} x2={90} y2={50} stroke="currentColor" strokeWidth={1.5} markerEnd="url(#pd-arrow)" />
-        <rect x={30} y={150} width={120} height={40} rx={8} fill={ACCENT} fillOpacity={0.08} stroke={ACCENT} strokeWidth={2.5} />
-        <text x={90} y={176} textAnchor="middle" fontSize={15} fontWeight={700} fontFamily={font} fill="currentColor">
+        <line
+          x1={90}
+          y1={150}
+          x2={90}
+          y2={50}
+          stroke="currentColor"
+          strokeWidth={1.5}
+          markerEnd="url(#pd-arrow)"
+        />
+        <rect
+          x={30}
+          y={150}
+          width={120}
+          height={40}
+          rx={8}
+          fill={ACCENT}
+          fillOpacity={0.08}
+          stroke={ACCENT}
+          strokeWidth={2.5}
+        />
+        <text
+          x={90}
+          y={176}
+          textAnchor="middle"
+          fontSize={15}
+          fontWeight={700}
+          fontFamily={font}
+          fill="currentColor"
+        >
           GRAMMAR
         </text>
-        <line x1={90} y1={190} x2={90} y2={290} stroke="currentColor" strokeWidth={1.5} markerEnd="url(#pd-arrow)" />
-        <text x={90} y={314} textAnchor="middle" fontSize={16} fontFamily={font} fill="currentColor">
+        <line
+          x1={90}
+          y1={190}
+          x2={90}
+          y2={290}
+          stroke="currentColor"
+          strokeWidth={1.5}
+          markerEnd="url(#pd-arrow)"
+        />
+        <text
+          x={90}
+          y={314}
+          textAnchor="middle"
+          fontSize={16}
+          fontFamily={font}
+          fill="currentColor"
+        >
           DOWN
         </text>
 
@@ -82,16 +141,64 @@ export default function PrecedenceDiagram() {
         />
 
         {/* Right: PRECEDENCE axis */}
-        <text x={560} y={38} textAnchor="middle" fontSize={16} fontFamily={font} fill="currentColor">
+        <text
+          x={560}
+          y={38}
+          textAnchor="middle"
+          fontSize={16}
+          fontFamily={font}
+          fill="currentColor"
+        >
           LOW
         </text>
-        <line x1={560} y1={150} x2={560} y2={50} stroke="currentColor" strokeWidth={1.5} markerEnd="url(#pd-arrow)" />
-        <rect x={490} y={150} width={140} height={40} rx={8} fill={ACCENT} fillOpacity={0.08} stroke={ACCENT} strokeWidth={2.5} />
-        <text x={560} y={176} textAnchor="middle" fontSize={15} fontWeight={700} fontFamily={font} fill="currentColor">
+        <line
+          x1={560}
+          y1={150}
+          x2={560}
+          y2={50}
+          stroke="currentColor"
+          strokeWidth={1.5}
+          markerEnd="url(#pd-arrow)"
+        />
+        <rect
+          x={490}
+          y={150}
+          width={140}
+          height={40}
+          rx={8}
+          fill={ACCENT}
+          fillOpacity={0.08}
+          stroke={ACCENT}
+          strokeWidth={2.5}
+        />
+        <text
+          x={560}
+          y={176}
+          textAnchor="middle"
+          fontSize={15}
+          fontWeight={700}
+          fontFamily={font}
+          fill="currentColor"
+        >
           PRECEDENCE
         </text>
-        <line x1={560} y1={190} x2={560} y2={290} stroke="currentColor" strokeWidth={1.5} markerEnd="url(#pd-arrow)" />
-        <text x={560} y={314} textAnchor="middle" fontSize={16} fontFamily={font} fill="currentColor">
+        <line
+          x1={560}
+          y1={190}
+          x2={560}
+          y2={290}
+          stroke="currentColor"
+          strokeWidth={1.5}
+          markerEnd="url(#pd-arrow)"
+        />
+        <text
+          x={560}
+          y={314}
+          textAnchor="middle"
+          fontSize={16}
+          fontFamily={font}
+          fill="currentColor"
+        >
           HIGH
         </text>
       </svg>

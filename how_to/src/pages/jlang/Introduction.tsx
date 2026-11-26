@@ -5,7 +5,7 @@ export default function Introduction() {
     <>
       <h1>Introduction</h1>
 
-     <p>
+      <p>
         Jlang is a <strong>procedural</strong> language &mdash; no classes, no
         inheritance, no method overloading. Just functions, structs, and data
         you control. Languages like Go and Rust have shown that you can build
@@ -128,7 +128,7 @@ fn main() -> i32 {
 }`}
       />
 
-    <h1>Operators</h1>
+      <h1>Operators</h1>
 
       <h2>Logical Operators</h2>
       <p>
@@ -170,7 +170,7 @@ x--;    // postfix: x becomes 6
 --x;    // prefix:  x becomes 5`}
       />
 
-    <h2>Bitwise Operators</h2>
+      <h2>Bitwise Operators</h2>
 
       <p>
         jlang provides the full set of bitwise operators for working with
@@ -224,8 +224,7 @@ var h: u64 = 18446744073709551615;`}
 var newline: char = '\\n';`}
       />
 
-
-    <table className="doc-table">
+      <table className="doc-table">
         <thead>
           <tr>
             <th>Type</th>
@@ -323,7 +322,7 @@ var newline: char = '\\n';`}
             <td>1 bit</td>
             <td>true or false</td>
           </tr>
-         </tbody>
+        </tbody>
       </table>
 
       <h1>Types &amp; Literals</h1>
@@ -371,7 +370,7 @@ var h: u64 = 18446744073709551615;`}
 var precise: f64 = 3.141592653589793;`}
       />
 
-    <h1>Operators</h1>
+      <h1>Operators</h1>
 
       <h2>Logical Operators</h2>
 
@@ -446,7 +445,7 @@ x--;    // postfix: x becomes 6
 
       <h2>Bitwise Operators</h2>
 
-     <p>
+      <p>
         jlang provides the full set of bitwise operators for working with
         individual bits in integer values.
       </p>
@@ -463,7 +462,6 @@ var complement := ~a;      // bitwise NOT
 var leftShift  := a << 2;  // 0b110000 = 48
 var rightShift := a >> 1;  // 0b0110 = 6`}
       />
-
 
       <h3>Compound Assignment</h3>
       <p>All bitwise operators have compound assignment forms:</p>

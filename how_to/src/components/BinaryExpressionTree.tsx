@@ -16,8 +16,23 @@ const root: Box = { cx: 200, y: 22, w: 140, h: 36, title: 'Expr.Binary' };
 
 const kids: Box[] = [
   { cx: 70, y: 115, w: 124, h: 52, title: 'Expr.Literal', detail: 'Value = 2' },
-  { cx: 200, y: 115, w: 124, h: 52, title: 'Token', detail: 'Plus "+"', token: true },
-  { cx: 330, y: 115, w: 124, h: 52, title: 'Expr.Literal', detail: 'Value = 3' },
+  {
+    cx: 200,
+    y: 115,
+    w: 124,
+    h: 52,
+    title: 'Token',
+    detail: 'Plus "+"',
+    token: true,
+  },
+  {
+    cx: 330,
+    y: 115,
+    w: 124,
+    h: 52,
+    title: 'Expr.Literal',
+    detail: 'Value = 3',
+  },
 ];
 
 const edgeLabels = [
@@ -77,7 +92,12 @@ export default function BinaryExprTree() {
         viewBox="0 0 400 190"
         role="img"
         aria-label="Syntax tree for 2 + 3: a Binary expression with a left Literal 2, a plus operator token and a right Literal 3"
-        style={{ width: '100%', maxWidth: 440, display: 'block', margin: '0 auto' }}
+        style={{
+          width: '100%',
+          maxWidth: 440,
+          display: 'block',
+          margin: '0 auto',
+        }}
       >
         {kids.map((k) => (
           <line

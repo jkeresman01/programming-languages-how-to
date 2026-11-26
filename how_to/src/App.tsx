@@ -17,8 +17,14 @@ export default function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<Preface />} />
         <Route path="/introduction/introduction" element={<Introduction />} />
-        <Route path="/introduction/interpreters-vs-compilers" element={<InterpretersVsCompilers />} />
-        <Route path="/introduction/phases-of-compiler" element={<PhasesOfCompiler />} />
+        <Route
+          path="/introduction/interpreters-vs-compilers"
+          element={<InterpretersVsCompilers />}
+        />
+        <Route
+          path="/introduction/phases-of-compiler"
+          element={<PhasesOfCompiler />}
+        />
         <Route path="/introduction/shortcuts" element={<Shortcuts />} />
         <Route path="/options/introduction" element={<OptionsIntroduction />} />
         <Route path="/lox/introduction" element={<LoxIntroduction />} />
