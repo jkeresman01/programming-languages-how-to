@@ -1,4 +1,4 @@
-const ACCENT = '#e5484d';
+const ACCENT = '#a848e5';
 const FONT = 'ui-monospace, SFMono-Regular, Menlo, monospace';
 
 type Box = {

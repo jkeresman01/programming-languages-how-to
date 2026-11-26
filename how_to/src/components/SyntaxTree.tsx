@@ -1,6 +1,6 @@
 type TreeNode = { id: string; label: string; x: number; y: number; operator?: boolean };
 
-const ACCENT = '#e5484d';
+const ACCENT = '#a848e5';
 const R = 20;
 
 // Simplified syntax tree for: 1 + 2 * 3

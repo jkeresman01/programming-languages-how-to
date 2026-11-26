@@ -367,21 +367,23 @@ block-item -> statement`}/>
       <h3>Static analysis</h3>
 
       <p>
-        The first two stages, scanning and parsing, tend to be boring and dull,
-        pretty much the same across all implementations. Static analysis is where the
-        individual quirks of each language come into play. This is where we figure out
-        what names refer to (binding) and, in a statically typed language, check that
-        the types line up, all before the program runs.
+        The first two stages, scanning and parsing, tend to be boring and dull, pretty
+        much the same across all implementations. At this point we know the syntactic
+        structure of the code - things like which expressions are nested in which,
+        but we don't know much more than that. Static analysis is where the individual
+        quirks of each language come into play. This is where we figure out what names
+        refer to (binding) and, in a statically typed language, check that the types
+        line up, all before the program runs.
       </p>
 
       <h2>Middle end</h2>
 
       <p>
-        We now understand what the poet tried to say, we can rephrase it bit while
+        We now understand what the poet tried to say, we can rephrase it a bit while
         keeping the same <strong>semantics</strong>, while sneaking in some optimizations
         along the way.
       </p>
-      
+
       <p>
         Optimization is a weird and complex topic of its own, most of it happens on the
         intermediate representation, though not all, and one can spend decades on it.
