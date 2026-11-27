@@ -333,7 +333,7 @@ var binaryExpr = new Expr.Binary
       <p>
         The structure of the tree relies on a set of mutually recursive rules
         known as a <i>context-free grammar</i>. Each rule has an arrow sign with
-        a construct name on the left and a possible expression on the right. In{' '}
+        a construct name on the left and a possible expansion on the right. In{' '}
         <code>C</code>, for example, and most C-like languages, a{' '}
         <code>while</code> loop consists of the keyword <code>while</code>{' '}
         followed by a parenthesized Boolean expression and a statement.
@@ -384,6 +384,13 @@ block-item -> statement`}
         Many more grammar rules are of course needed to explain the full
         structure of a program.
       </p>
+
+     <p>
+      In theoretical parlance the scanner is a <i>deterministic finite automaton</i>
+      {' '}(DFA) that recognizes the tokens of the programming language. A parser is a
+      <i>deterministic push-down automaton</i> (PDA) that recognizes the languages
+      context-free syntax.
+     </p>
 
       <p>
         In the process of <code>scanning</code> and <code>parsing</code> the
